@@ -28,6 +28,7 @@ public class ControladorCliente implements ActionListener, KeyListener {
         formCliente = new jCliente();
         formCliente.agregarListener(this);
         formCliente.setVisible(true);
+        listCliente.cargarClientes();
         
         enabled(false);
         
@@ -79,10 +80,45 @@ public class ControladorCliente implements ActionListener, KeyListener {
         }
         
     }
-
+    
+    public void buscar(){
+        Cliente cliente = new Cliente();
+        String cadena;
+        int existe;
+        
+        cadena = formCliente.getjTextFieldCedula().getText().trim();
+        existe = listaCliente.existeCliente(cadena);
+        
+        if(existe == 1){
+            formCliente.getjTextFieldNombre().setText(cliente.getNombre());
+            formCliente.getjTextFieldApellido().setText(cliente.getApellido());
+            formCliente.getjTextFieldDireccion().setText(cliente.getDireccion());
+            formCliente.getjFormattedTextFieldTelefono().setText(cliente.getTelefono());
+            formCliente.getjComboBoxSexo().setSelectedItem(cliente.getSexo());
+        }    
+    }
+    
+    private void cancelar(){
+        enabled(false);
+        formCliente.getjTextFieldCedula().requestFocusInWindow();
+        formCliente.getjTextFieldCedula().setText("");  
+        formCliente.getjTextFieldNombre().setText(""); 
+        formCliente.getjTextFieldDireccion().setText(""); 
+        formCliente.getjFormattedTextFieldTelefono().setText(""); 
+        formCliente.getjFormattedTextFieldFecha().setText("");
+        formCliente.getjComboBoxSexo().setSelectedIndex(0); 
+    }
+    
     @Override
     public void actionPerformed(ActionEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
+        if(e.getSource().equals(formCliente.getjButtonBuscar())){
+            buscar();
+        }
+        
+        if(e.getSource().equals(formCliente.getjButtonCancelar())){
+            cancelar();
+        }
     }
 
     @Override
