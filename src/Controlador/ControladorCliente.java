@@ -5,6 +5,7 @@
  */
 package Controlador;
 
+import Librerias.Validaciones;
 import Modelo.Cliente;
 import Modelo.Listas;
 import Vista.jCliente;
@@ -32,13 +33,46 @@ public class ControladorCliente implements ActionListener, KeyListener {
         
         enabled(false);
         
+        // KeyListener para validar
+        
         formCliente.getjTextFieldCedula().addKeyListener(new KeyAdapter() {
            
             @Override
             public void keyPressed(KeyEvent e){
                 cedulaKeyPressed(e);
             }
+            
+            @Override
+            public void keyTyped(KeyEvent e){
+                Validaciones.ValidarSoloNumeros(e, formCliente.getjTextFieldCedula().getText());
+            }
         });
+        
+        formCliente.getjTextFieldNombre().addKeyListener(new KeyAdapter() {
+            
+            @Override
+            public void keyTyped(KeyEvent e){
+                Validaciones.ValidarSoloLetras(e);
+            } 
+        });
+        
+        formCliente.getjTextFieldApellido().addKeyListener(new KeyAdapter() {
+            
+            @Override
+            public void keyTyped(KeyEvent e){
+                Validaciones.ValidarSoloLetras(e);
+            } 
+        });
+        
+        formCliente.getjFormattedTextFieldTelefono().addKeyListener(new KeyAdapter() {
+            
+            @Override
+            public void keyTyped(KeyEvent e){
+                Validaciones.ValidarSoloNumeros(e, formCliente.getjFormattedTextFieldTelefono()
+                .getText());
+            }
+        });
+        
     }
     
     public void enabled(boolean status){
@@ -87,10 +121,74 @@ public class ControladorCliente implements ActionListener, KeyListener {
         int existe;
         
         cadena = formCliente.getjTextFieldCedula().getText().trim();
+        
+        if(cadena.length() == 0){
+            Validaciones.Aviso("Campo cedula esta Vacio", "");
+            formCliente.getjTextFieldCedula().requestFocusInWindow();
+            return;
+        }
+        
+        cadena = formCliente.getjTextFieldNombre().getText().trim();
+        
+        if(cadena.length() == 0){
+            Validaciones.Aviso("Campo nombre esta Vacio", "");
+            formCliente.getjTextFieldNombre().requestFocusInWindow();
+            return;
+        }
+        
+        cadena = formCliente.getjTextFieldApellido().getText().trim();
+        
+        if(cadena.length() == 0){
+            Validaciones.Aviso("Campo apellido esta Vacio", "");
+            formCliente.getjTextFieldApellido().requestFocusInWindow();
+            return;
+        }
+        
+        cadena = formCliente.getjTextFieldDireccion().getText().trim();
+        
+        if(cadena.length() == 0){
+            Validaciones.Aviso("Campo direccion esta Vacio", "");
+            formCliente.getjTextFieldDireccion().requestFocusInWindow();
+            return;
+        }
+        
+        cadena = formCliente.getjFormattedTextFieldTelefono().getText().trim();
+        
+        if(cadena.length() == 0){
+            Validaciones.Aviso("Campo Telefono esta Vacio", "");
+            formCliente.getjFormattedTextFieldTelefono().requestFocusInWindow();
+            return;
+        }
+        
+        cadena = formCliente.getjFormattedTextFieldFecha().getText().trim();
+        
+        if(cadena.length() == 0){
+            Validaciones.Aviso("Campo Fecha esta Vacio", "");
+            formCliente.getjFormattedTextFieldFecha().requestFocusInWindow();
+            return;
+        }
+        
+        cadena = formCliente.getjFormattedTextFieldFecha().getText().trim();
+        
+        if(!Validaciones.isDate(cadena)){
+            Validaciones.Aviso("Error en la Fecha de nacimiento", "");
+            formCliente.getjFormattedTextFieldFecha().requestFocusInWindow();
+            return;
+        }
+        
+        cadena = (String)formCliente.getjComboBoxSexo().getSelectedItem();
+        
+        if("seleccione".equalsIgnoreCase(cadena)){
+            Validaciones.Aviso("No se ha seleccionado un Sexo", "");
+            formCliente.getjComboBoxSexo().requestFocusInWindow();
+            return;
+        }
+        
+        cadena = formCliente.getjTextFieldCedula().getText().trim();
         existe = listaCliente.existeCliente(cadena);
         
         sex = (String)formCliente.getjComboBoxSexo().getSelectedItem();
-        if(existe == 1){
+        if(existe == -1){
             cliente = new Cliente(cadena,formCliente.getjTextFieldNombre().getText(),
                formCliente.getjTextFieldApellido().getText(),
                 formCliente.getjTextFieldDireccion().getText(),
@@ -98,15 +196,22 @@ public class ControladorCliente implements ActionListener, KeyListener {
                 formCliente.getjFormattedTextFieldFecha().getText(),
                     sex
                 );
-            
-        }    
+            listaCliente.getListaCliente().add(cliente);
+            Validaciones.Aviso("Registro del Cliente exitoso!", "");
+            cancelar();
+        }
+        else {
+            Validaciones.Aviso("No se puede guardar, Cliente ya Existe.", "");
+            return;
+        }
     }
     
     private void cancelar(){
         enabled(false);
         formCliente.getjTextFieldCedula().requestFocusInWindow();
         formCliente.getjTextFieldCedula().setText("");  
-        formCliente.getjTextFieldNombre().setText(""); 
+        formCliente.getjTextFieldNombre().setText("");
+        formCliente.getjTextFieldApellido().setText("");
         formCliente.getjTextFieldDireccion().setText(""); 
         formCliente.getjFormattedTextFieldTelefono().setText(""); 
         formCliente.getjFormattedTextFieldFecha().setText("");
@@ -116,7 +221,7 @@ public class ControladorCliente implements ActionListener, KeyListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         
-        if(e.getSource().equals(formCliente.getjButtonBuscar())){
+        if(e.getSource().equals(formCliente.getjButtonGuardar())){
             guardar();
         }
         
