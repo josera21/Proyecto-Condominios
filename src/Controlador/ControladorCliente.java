@@ -81,20 +81,24 @@ public class ControladorCliente implements ActionListener, KeyListener {
         
     }
     
-    public void buscar(){
-        Cliente cliente = new Cliente();
-        String cadena;
+    private void guardar(){
+        Cliente cliente;
+        String cadena, sex;
         int existe;
         
         cadena = formCliente.getjTextFieldCedula().getText().trim();
         existe = listaCliente.existeCliente(cadena);
         
+        sex = (String)formCliente.getjComboBoxSexo().getSelectedItem();
         if(existe == 1){
-            formCliente.getjTextFieldNombre().setText(cliente.getNombre());
-            formCliente.getjTextFieldApellido().setText(cliente.getApellido());
-            formCliente.getjTextFieldDireccion().setText(cliente.getDireccion());
-            formCliente.getjFormattedTextFieldTelefono().setText(cliente.getTelefono());
-            formCliente.getjComboBoxSexo().setSelectedItem(cliente.getSexo());
+            cliente = new Cliente(cadena,formCliente.getjTextFieldNombre().getText(),
+               formCliente.getjTextFieldApellido().getText(),
+                formCliente.getjTextFieldDireccion().getText(),
+                formCliente.getjFormattedTextFieldTelefono().getText(),
+                formCliente.getjFormattedTextFieldFecha().getText(),
+                    sex
+                );
+            
         }    
     }
     
@@ -113,7 +117,7 @@ public class ControladorCliente implements ActionListener, KeyListener {
     public void actionPerformed(ActionEvent e) {
         
         if(e.getSource().equals(formCliente.getjButtonBuscar())){
-            buscar();
+            guardar();
         }
         
         if(e.getSource().equals(formCliente.getjButtonCancelar())){
