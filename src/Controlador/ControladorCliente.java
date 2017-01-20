@@ -98,6 +98,7 @@ public class ControladorCliente implements ActionListener, KeyListener {
             posCliente = listaCliente.existeCliente(cadena);
             if(posCliente == -1){
                 enabled(true);
+                Validaciones.Aviso("Cliente no encontrado", "Atencion");
                 formCliente.getjTextFieldNombre().requestFocusInWindow();
                 return;
             }

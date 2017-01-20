@@ -17,14 +17,16 @@ import java.util.LinkedList;
  */
 public class Listas {
     
-    private LinkedList<Cliente> ListaCliente = new LinkedList();
+    private LinkedList<Cliente> ListaCliente = new LinkedList<Cliente>();
+    
     
     public LinkedList<Cliente> getListaCliente(){
         return ListaCliente;
     }
     
-    public void cargarClientes(){
+public void cargarClientes(){
         
+        {
         Cliente cliente = new Cliente();
         
         String via;
@@ -71,6 +73,7 @@ public class Listas {
                     case 6: cliente.setFechaNacimiento(linea);
                     break;
                     case 7: cliente.setSexo(linea);
+                            ListaCliente.add(cliente);
                             cliente = new Cliente();
                             cnt = 0;
                     break;
@@ -78,7 +81,7 @@ public class Listas {
             }
         }
         
-        catch(IOException e){
+        catch(Exception e){
         } finally {
             // Aqui se cierra el fichero
             // Se cerrara si todo va bien
@@ -88,10 +91,11 @@ public class Listas {
                     fr.close();
                 }
             }
-            catch(IOException e){
+            catch(Exception e){
             }
         }
-    }
+      }
+}
     
     public int existeCliente(String cedCli){
         int pos;

@@ -48,7 +48,6 @@ public class jCliente extends javax.swing.JFrame {
         jFormattedTextFieldTelefono = new javax.swing.JFormattedTextField();
         jFormattedTextFieldFecha = new javax.swing.JFormattedTextField();
         jComboBoxSexo = new javax.swing.JComboBox<>();
-        jButtonBuscar = new javax.swing.JButton();
         jButtonGuardar = new javax.swing.JButton();
         jButtonCancelar = new javax.swing.JButton();
         jButtonSalir = new javax.swing.JButton();
@@ -78,16 +77,14 @@ public class jCliente extends javax.swing.JFrame {
 
         jComboBoxSexo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecciona", "F", "M" }));
 
-        jButtonBuscar.setText("Buscar");
-
         jButtonGuardar.setText("Guardar");
 
         jButtonCancelar.setText("Cancelar");
 
         jButtonSalir.setText("Salir");
 
-        jLabel8.setForeground(new java.awt.Color(255, 204, 153));
-        jLabel8.setText("*Presione una tecla cuando coloque la cedula");
+        jLabel8.setForeground(new java.awt.Color(255, 0, 0));
+        jLabel8.setText("*Presione Enter cuando coloque la cedula");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -97,8 +94,6 @@ public class jCliente extends javax.swing.JFrame {
                 .addGap(30, 30, 30)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jButtonBuscar)
-                        .addGap(18, 18, 18)
                         .addComponent(jButtonGuardar)
                         .addGap(18, 18, 18)
                         .addComponent(jButtonCancelar)
@@ -136,7 +131,7 @@ public class jCliente extends javax.swing.JFrame {
                         .addComponent(jLabel6)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jFormattedTextFieldFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(9, Short.MAX_VALUE))
+                .addContainerGap(37, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -172,7 +167,6 @@ public class jCliente extends javax.swing.JFrame {
                     .addComponent(jComboBoxSexo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButtonBuscar)
                     .addComponent(jButtonGuardar)
                     .addComponent(jButtonCancelar)
                     .addComponent(jButtonSalir))
@@ -235,10 +229,6 @@ public class jCliente extends javax.swing.JFrame {
         return jButtonCancelar;
     }
 
-    public JButton getjButtonBuscar() {
-        return jButtonBuscar;
-    }
-
     public JButton getjButtonGuardar() {
         return jButtonGuardar;
     }
@@ -251,7 +241,6 @@ public class jCliente extends javax.swing.JFrame {
     // Los listener activaran los eventos que ocurran en el menu
     
     public void agregarListener(ActionListener action){
-        this.jButtonBuscar.addActionListener(action);
         this.jButtonGuardar.addActionListener(action);
         this.jButtonCancelar.addActionListener(action);
         this.jButtonSalir.addActionListener(action);
@@ -259,7 +248,6 @@ public class jCliente extends javax.swing.JFrame {
     
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButtonBuscar;
     private javax.swing.JButton jButtonCancelar;
     private javax.swing.JButton jButtonGuardar;
     private javax.swing.JButton jButtonSalir;

@@ -57,8 +57,6 @@
                   <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
-                          <Component id="jButtonBuscar" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="jButtonGuardar" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="jButtonCancelar" min="-2" max="-2" attributes="0"/>
@@ -107,7 +105,7 @@
                           <Component id="jFormattedTextFieldFecha" min="-2" pref="85" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace pref="9" max="32767" attributes="0"/>
+                  <EmptySpace pref="37" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -152,7 +150,6 @@
                   </Group>
                   <EmptySpace pref="34" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jButtonBuscar" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jButtonGuardar" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jButtonCancelar" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jButtonSalir" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -230,11 +227,6 @@
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
           </AuxValues>
         </Component>
-        <Component class="javax.swing.JButton" name="jButtonBuscar">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Buscar"/>
-          </Properties>
-        </Component>
         <Component class="javax.swing.JButton" name="jButtonGuardar">
           <Properties>
             <Property name="text" type="java.lang.String" value="Guardar"/>
@@ -253,9 +245,9 @@
         <Component class="javax.swing.JLabel" name="jLabel8">
           <Properties>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="99" green="cc" red="ff" type="rgb"/>
+              <Color blue="0" green="0" red="ff" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="*Presione una tecla cuando coloque la cedula"/>
+            <Property name="text" type="java.lang.String" value="*Presione Enter cuando coloque la cedula"/>
           </Properties>
         </Component>
       </SubComponents>
