@@ -71,7 +71,7 @@ public class jCliente extends javax.swing.JFrame {
 
         jLabel7.setText("Sexo");
 
-        jFormattedTextFieldTelefono.setText("(  ) - -");
+        jFormattedTextFieldTelefono.setText("(    )   -  -  ");
 
         jFormattedTextFieldFecha.setText("  /  /");
 

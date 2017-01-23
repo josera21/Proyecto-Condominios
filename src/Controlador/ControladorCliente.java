@@ -109,6 +109,7 @@ public class ControladorCliente implements ActionListener, KeyListener {
             formCliente.getjTextFieldApellido().setText(cliente.getApellido());
             formCliente.getjTextFieldDireccion().setText(cliente.getDireccion());
             formCliente.getjFormattedTextFieldTelefono().setText(cliente.getTelefono());
+            formCliente.getjFormattedTextFieldFecha().setText(cliente.getFechaNacimiento());
             formCliente.getjComboBoxSexo().setSelectedItem(cliente.getSexo());
             
             enabled(false);
@@ -228,6 +229,10 @@ public class ControladorCliente implements ActionListener, KeyListener {
         
         if(e.getSource().equals(formCliente.getjButtonCancelar())){
             cancelar();
+        }
+        
+        if(e.getSource().equals(formCliente.getjButtonSalir())){
+            new ControladorPrincipal();
         }
     }
 

@@ -205,7 +205,7 @@
         </Component>
         <Component class="javax.swing.JFormattedTextField" name="jFormattedTextFieldTelefono">
           <Properties>
-            <Property name="text" type="java.lang.String" value="(  ) - -"/>
+            <Property name="text" type="java.lang.String" value="(    )   -  -  "/>
           </Properties>
         </Component>
         <Component class="javax.swing.JFormattedTextField" name="jFormattedTextFieldFecha">
