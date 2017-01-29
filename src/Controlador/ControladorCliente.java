@@ -5,6 +5,7 @@
  */
 package Controlador;
 
+import DAO.DaoCliente;
 import Librerias.Validaciones;
 import Modelo.Cliente;
 import Modelo.Listas;
@@ -14,6 +15,10 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -39,7 +44,12 @@ public class ControladorCliente implements ActionListener, KeyListener {
            
             @Override
             public void keyPressed(KeyEvent e){
-                cedulaKeyPressed(e);
+                try {
+                    cedulaKeyPressed(e);
+                } catch (SQLException ex) {
+                    Logger.getLogger(ControladorCliente.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                
             }
             
             @Override
@@ -85,42 +95,48 @@ public class ControladorCliente implements ActionListener, KeyListener {
         formCliente.getjComboBoxSexo().setEditable(status);
     }
     
-    private void cedulaKeyPressed(KeyEvent key){
+    private void cedulaKeyPressed(KeyEvent key) throws SQLException {
         
         Cliente cliente;
+        ResultSet regCliente;
+        DaoCliente daoCliente = new DaoCliente();
         String cadena;
-        int posCliente;
         
         cadena = formCliente.getjTextFieldCedula().getText().trim();
         
         if(key.getKeyChar()==10 && cadena.length()<=8 && cadena.length()>=7){
-           
-            posCliente = listaCliente.existeCliente(cadena);
-            if(posCliente == -1){
-                enabled(true);
+            regCliente = daoCliente.buscarCliente(cadena);
+            if(regCliente.next()){
+                formCliente.getjTextFieldCedula().setText(regCliente.getString("cedula"));
+                formCliente.getjTextFieldNombre().setText(regCliente.getString("nombre"));
+                formCliente.getjTextFieldApellido().setText(regCliente.getString("apellido"));
+                formCliente.getjTextFieldDireccion().setText(regCliente.getString("direccion"));
+                formCliente.getjFormattedTextFieldTelefono().setText(regCliente.getString("telefono"));
+                formCliente.getjFormattedTextFieldFecha().setText(regCliente.getString("fechanac"));
+                if(regCliente.getString("sexo").equals("M"))
+                    formCliente.getjComboBoxSexo().setSelectedIndex(2);
+                else
+                    formCliente.getjComboBoxSexo().setSelectedIndex(1);
+                
+            }
+            else {
                 Validaciones.Aviso("Cliente no encontrado", "Atencion");
                 formCliente.getjTextFieldNombre().requestFocusInWindow();
+                enabled(true);
                 return;
             }
-            
-            cliente = listaCliente.getListaCliente().get(posCliente);
-            
-            formCliente.getjTextFieldNombre().setText(cliente.getNombre());
-            formCliente.getjTextFieldApellido().setText(cliente.getApellido());
-            formCliente.getjTextFieldDireccion().setText(cliente.getDireccion());
-            formCliente.getjFormattedTextFieldTelefono().setText(cliente.getTelefono());
-            formCliente.getjFormattedTextFieldFecha().setText(cliente.getFechaNacimiento());
-            formCliente.getjComboBoxSexo().setSelectedItem(cliente.getSexo());
             
             enabled(false);
         }
         
     }
     
-    private void guardar(){
+    private void guardar() throws SQLException {
         Cliente cliente;
+        DaoCliente daoCliente = new DaoCliente();
+        ResultSet regCliente;
         String cadena, sex;
-        int existe;
+        
         
         cadena = formCliente.getjTextFieldCedula().getText().trim();
         
@@ -187,25 +203,27 @@ public class ControladorCliente implements ActionListener, KeyListener {
         }
         
         cadena = formCliente.getjTextFieldCedula().getText().trim();
-        existe = listaCliente.existeCliente(cadena);
         
         sex = (String)formCliente.getjComboBoxSexo().getSelectedItem();
-        if(existe == -1){
-            cliente = new Cliente(cadena,formCliente.getjTextFieldNombre().getText(),
+        cliente = new Cliente(cadena,formCliente.getjTextFieldNombre().getText(),
                formCliente.getjTextFieldApellido().getText(),
                 formCliente.getjTextFieldDireccion().getText(),
                 formCliente.getjFormattedTextFieldTelefono().getText(),
                 formCliente.getjFormattedTextFieldFecha().getText(),
                     sex
                 );
-            listaCliente.getListaCliente().add(cliente);
-            Validaciones.Aviso("Registro del Cliente exitoso!", "");
+        
+        regCliente = daoCliente.buscarCliente(cadena);
+        if(!regCliente.next()){
+            daoCliente.insertar(cliente);
+            Validaciones.Aviso("Registro del Cliente exitoso!", "Gestion de Registro");
             cancelar();
         }
         else {
-            Validaciones.Aviso("No se puede guardar, Cliente ya Existe.", "");
-            return;
+            daoCliente.modificarCliente(cliente);
+            Validaciones.Aviso("Cliente modificado exitosamente!", "Gestion de Registro");
         }
+     
     }
     
     private void cancelar(){
@@ -224,7 +242,11 @@ public class ControladorCliente implements ActionListener, KeyListener {
     public void actionPerformed(ActionEvent e) {
         
         if(e.getSource().equals(formCliente.getjButtonGuardar())){
-            guardar();
+            try {
+                guardar();
+            } catch (SQLException ex) {
+                Logger.getLogger(ControladorCliente.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
         
         if(e.getSource().equals(formCliente.getjButtonCancelar())){
