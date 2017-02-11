@@ -13,6 +13,7 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.Locale;
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 
 /**
  *
@@ -131,4 +132,9 @@ public static void ValidarSoloLetras(KeyEvent e){
     }
 }
 
+public static void ValidarCamposVacios(String cadena) {
+    if(cadena.length() == 0){
+            Validaciones.Aviso("Un campo esta Vacio", "Informacion");
+        }
+}
 }

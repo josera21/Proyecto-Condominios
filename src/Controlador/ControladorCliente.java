@@ -88,16 +88,18 @@ public class ControladorCliente implements ActionListener, KeyListener {
     public void enabled(boolean status){
         formCliente.getjTextFieldCedula().setEditable(!status);
         formCliente.getjTextFieldNombre().setEditable(status);
+        formCliente.getjTextFieldSegNombre().setEditable(status);
         formCliente.getjTextFieldApellido().setEditable(status);
+        formCliente.getjTextFieldSegApellido().setEditable(status);
         formCliente.getjTextFieldDireccion().setEditable(status);
         formCliente.getjFormattedTextFieldTelefono().setEditable(status);
         formCliente.getjFormattedTextFieldFecha().setEditable(status);
         formCliente.getjComboBoxSexo().setEditable(status);
+        formCliente.getjTextFieldEmail().setEditable(status);
     }
     
     private void cedulaKeyPressed(KeyEvent key) throws SQLException {
         
-        Cliente cliente;
         ResultSet regCliente;
         DaoCliente daoCliente = new DaoCliente();
         String cadena;
@@ -109,7 +111,9 @@ public class ControladorCliente implements ActionListener, KeyListener {
             if(regCliente.next()){
                 formCliente.getjTextFieldCedula().setText(regCliente.getString("cedula"));
                 formCliente.getjTextFieldNombre().setText(regCliente.getString("nombre"));
+                formCliente.getjTextFieldSegNombre().setText(regCliente.getString("segNombre"));
                 formCliente.getjTextFieldApellido().setText(regCliente.getString("apellido"));
+                formCliente.getjTextFieldSegApellido().setText(regCliente.getString("segApellido"));
                 formCliente.getjTextFieldDireccion().setText(regCliente.getString("direccion"));
                 formCliente.getjFormattedTextFieldTelefono().setText(regCliente.getString("telefono"));
                 formCliente.getjFormattedTextFieldFecha().setText(regCliente.getString("fechanac"));
@@ -117,6 +121,7 @@ public class ControladorCliente implements ActionListener, KeyListener {
                     formCliente.getjComboBoxSexo().setSelectedIndex(2);
                 else
                     formCliente.getjComboBoxSexo().setSelectedIndex(1);
+                formCliente.getjTextFieldEmail().setText(regCliente.getString("email"));
                 
             }
             else {
@@ -206,11 +211,14 @@ public class ControladorCliente implements ActionListener, KeyListener {
         
         sex = (String)formCliente.getjComboBoxSexo().getSelectedItem();
         cliente = new Cliente(cadena,formCliente.getjTextFieldNombre().getText(),
-               formCliente.getjTextFieldApellido().getText(),
+                formCliente.getjTextFieldSegNombre().getText(),
+                formCliente.getjTextFieldApellido().getText(),
+                formCliente.getjTextFieldSegApellido().getText(),
                 formCliente.getjTextFieldDireccion().getText(),
                 formCliente.getjFormattedTextFieldTelefono().getText(),
-                formCliente.getjFormattedTextFieldFecha().getText(),
-                    sex
+                formCliente.getjFormattedTextFieldFecha().getText(),sex,
+                formCliente.getjTextFieldEmail().getText()
+                
                 );
         
         regCliente = daoCliente.buscarCliente(cadena);
@@ -231,11 +239,14 @@ public class ControladorCliente implements ActionListener, KeyListener {
         formCliente.getjTextFieldCedula().requestFocusInWindow();
         formCliente.getjTextFieldCedula().setText("");  
         formCliente.getjTextFieldNombre().setText("");
+        formCliente.getjTextFieldSegNombre().setText("");
         formCliente.getjTextFieldApellido().setText("");
+        formCliente.getjTextFieldSegApellido().setText("");
         formCliente.getjTextFieldDireccion().setText(""); 
         formCliente.getjFormattedTextFieldTelefono().setText(""); 
         formCliente.getjFormattedTextFieldFecha().setText("");
         formCliente.getjComboBoxSexo().setSelectedIndex(0); 
+        formCliente.getjTextFieldEmail().setText("");
     }
     
     @Override

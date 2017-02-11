@@ -17,16 +17,19 @@ public class DaoCliente extends ClassConexionDAO {
     
     public void insertar(Cliente cliente){
         
-        String sql = "INSERT INTO cliente(cedula, nombre, apellido, direccion, telefono,fechanac, sexo) VALUES(";
+        String sql = "INSERT INTO cliente(cedula, nombre, segnombre, apellido,"
+                + "segapellido, direccion, telefono,fechanac, sexo, email) VALUES(";
                 
                 sql = sql + Validaciones.Apost(cliente.getCedula()) + ",";
                 sql = sql + Validaciones.Apost(cliente.getNombre())+ ",";
+                sql = sql + Validaciones.Apost(cliente.getSegNombre())+ ",";
                 sql = sql + Validaciones.Apost(cliente.getApellido())+ ",";
+                sql = sql + Validaciones.Apost(cliente.getSegApellido())+ ",";
                 sql = sql + Validaciones.Apost(cliente.getDireccion())+ ",";
                 sql = sql + Validaciones.Apost(cliente.getTelefono())+ ",";
                 sql = sql + Validaciones.Apost(cliente.getFechaNacimiento()) + ",";
-                sql = sql + Validaciones.Apost(cliente.getSexo()) + ")";
-
+                sql = sql + Validaciones.Apost(cliente.getSexo()) + ",";
+                sql = sql + Validaciones.Apost(cliente.getEmail()) + ")";
                 PackageConeccion.ConeccionBD.ejecutar(sql);
         
     }
@@ -54,11 +57,14 @@ public class DaoCliente extends ClassConexionDAO {
       
         sql = "UPDATE cliente SET ";
         sql = sql + "nombre="+Validaciones.Apost(cliente.getNombre())+",";
+        sql = sql + "segNombre="+Validaciones.Apost(cliente.getSegNombre())+ ",";
         sql = sql + "apellido="+Validaciones.Apost(cliente.getApellido())+",";
+        sql = sql + "segApellido="+Validaciones.Apost(cliente.getSegApellido())+ ",";
         sql = sql + "direccion="+Validaciones.Apost(cliente.getDireccion())+",";
         sql = sql + "telefono="+Validaciones.Apost(cliente.getTelefono())+",";
         sql = sql + "fechanac="+Validaciones.Apost(cliente.getFechaNacimiento())+",";
         sql = sql + "sexo="+Validaciones.Apost(cliente.getSexo())+",";
+        sql = sql + "email="+Validaciones.Apost(cliente.getEmail()) + ",";
         sql=sql +"WHERE cedula="+Validaciones.Apost(cliente.getCedula());
       
        
