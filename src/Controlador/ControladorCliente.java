@@ -27,10 +27,8 @@ import java.util.logging.Logger;
 public class ControladorCliente implements ActionListener, KeyListener {
     
     private jCliente formCliente;
-    private Listas listaCliente;
     
     public ControladorCliente(Listas listCliente){
-        listaCliente = listCliente;
         formCliente = new jCliente();
         formCliente.agregarListener(this);
         formCliente.setVisible(true);
@@ -66,7 +64,23 @@ public class ControladorCliente implements ActionListener, KeyListener {
             } 
         });
         
+        formCliente.getjTextFieldSegNombre().addKeyListener(new KeyAdapter() {
+            
+            @Override
+            public void keyTyped(KeyEvent e){
+                Validaciones.ValidarSoloLetras(e);
+            } 
+        });
+        
         formCliente.getjTextFieldApellido().addKeyListener(new KeyAdapter() {
+            
+            @Override
+            public void keyTyped(KeyEvent e){
+                Validaciones.ValidarSoloLetras(e);
+            } 
+        });
+        
+        formCliente.getjTextFieldSegApellido().addKeyListener(new KeyAdapter() {
             
             @Override
             public void keyTyped(KeyEvent e){
@@ -123,6 +137,7 @@ public class ControladorCliente implements ActionListener, KeyListener {
                     formCliente.getjComboBoxSexo().setSelectedIndex(1);
                 formCliente.getjTextFieldEmail().setText(regCliente.getString("email"));
                 
+                formCliente.getjButtonGuardar().setText("Modificar");
             }
             else {
                 Validaciones.Aviso("Cliente no encontrado", "Atencion");
@@ -142,67 +157,37 @@ public class ControladorCliente implements ActionListener, KeyListener {
         ResultSet regCliente;
         String cadena, sex;
         
-        
-        cadena = formCliente.getjTextFieldCedula().getText().trim();
-        
-        if(cadena.length() == 0){
-            Validaciones.Aviso("Campo cedula esta Vacio", "");
-            formCliente.getjTextFieldCedula().requestFocusInWindow();
+        if(formCliente.getjButtonGuardar().getText().equalsIgnoreCase("Modificar")){
+            enabled(true);
+            formCliente.getjButtonGuardar().setText("Guardar");
             return;
         }
         
-        cadena = formCliente.getjTextFieldNombre().getText().trim();
-        
-        if(cadena.length() == 0){
-            Validaciones.Aviso("Campo nombre esta Vacio", "");
-            formCliente.getjTextFieldNombre().requestFocusInWindow();
-            return;
-        }
-        
-        cadena = formCliente.getjTextFieldApellido().getText().trim();
-        
-        if(cadena.length() == 0){
-            Validaciones.Aviso("Campo apellido esta Vacio", "");
-            formCliente.getjTextFieldApellido().requestFocusInWindow();
-            return;
-        }
-        
-        cadena = formCliente.getjTextFieldDireccion().getText().trim();
-        
-        if(cadena.length() == 0){
-            Validaciones.Aviso("Campo direccion esta Vacio", "");
-            formCliente.getjTextFieldDireccion().requestFocusInWindow();
-            return;
-        }
-        
-        cadena = formCliente.getjFormattedTextFieldTelefono().getText().trim();
-        
-        if(cadena.length() == 0){
-            Validaciones.Aviso("Campo Telefono esta Vacio", "");
-            formCliente.getjFormattedTextFieldTelefono().requestFocusInWindow();
-            return;
-        }
-        
-        cadena = formCliente.getjFormattedTextFieldFecha().getText().trim();
-        
-        if(cadena.length() == 0){
-            Validaciones.Aviso("Campo Fecha esta Vacio", "");
-            formCliente.getjFormattedTextFieldFecha().requestFocusInWindow();
-            return;
-        }
+        if(Validaciones.ValidarCamposVacios(formCliente.getjTextFieldCedula(), 
+                                   formCliente.getjTextFieldNombre(),
+                                   formCliente.getjTextFieldSegNombre(),
+                                   formCliente.getjTextFieldApellido(),
+                                   formCliente.getjTextFieldSegApellido(),
+                                   formCliente.getjTextFieldDireccion(),
+                                   formCliente.getjFormattedTextFieldTelefono(),
+                                   formCliente.getjFormattedTextFieldFecha(),
+                                   formCliente.getjTextFieldEmail())) {
+        //Aca empieza el if
+        Validaciones.Aviso("Hay campos vacios", "Gestion de Cliente");
+        return;
+    }
+       
         
         cadena = formCliente.getjFormattedTextFieldFecha().getText().trim();
         
         if(!Validaciones.isDate(cadena)){
-            Validaciones.Aviso("Error en la Fecha de nacimiento", "");
+            Validaciones.Aviso("Error en la Fecha de nacimiento", "Gestion de Cliente");
             formCliente.getjFormattedTextFieldFecha().requestFocusInWindow();
             return;
         }
-        
-        cadena = (String)formCliente.getjComboBoxSexo().getSelectedItem();
-        
-        if("seleccione".equalsIgnoreCase(cadena)){
-            Validaciones.Aviso("No se ha seleccionado un Sexo", "");
+        cadena = formCliente.getjComboBoxSexo().getSelectedItem().toString();
+        if(cadena.equalsIgnoreCase("selecciona")){
+            Validaciones.Aviso("No se ha seleccionado un Sexo", "Gestion de Cliente");
             formCliente.getjComboBoxSexo().requestFocusInWindow();
             return;
         }

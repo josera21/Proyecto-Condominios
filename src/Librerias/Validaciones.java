@@ -75,7 +75,7 @@ public static int DialogConfirm(String Pregunta,String Titulo)
       return respuesta;
     }
 //----------------------------------
-public static int Opciones(String Op1,String Op2,String Op3)
+public static int Opciones(String Op1,String Op2,String Op3, String CaptionWin)
 {        
   int optionType = JOptionPane.DEFAULT_OPTION;
  int messageType = JOptionPane.PLAIN_MESSAGE; // no standard icon
@@ -83,7 +83,7 @@ public static int Opciones(String Op1,String Op2,String Op3)
 Object[] selValues = { Op1, Op2, Op3 };
 
 // Shows message, choices appear as buttons
-int res = JOptionPane.showOptionDialog(null, "Selecciona una Opcion", "Accion",
+int res = JOptionPane.showOptionDialog(null, "Selecciona una Opcion", CaptionWin,
                                        optionType, messageType,null ,
                                        selValues, selValues[0]);
 
@@ -132,9 +132,13 @@ public static void ValidarSoloLetras(KeyEvent e){
     }
 }
 
-public static void ValidarCamposVacios(String cadena) {
-    if(cadena.length() == 0){
-            Validaciones.Aviso("Un campo esta Vacio", "Informacion");
+public static boolean ValidarCamposVacios(JTextField... jText) {
+    for (JTextField textField : jText) {
+        if (textField.getText().isEmpty()) {
+            return true;
         }
+    }
+    return false;
 }
+
 }

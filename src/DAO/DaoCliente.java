@@ -57,14 +57,14 @@ public class DaoCliente extends ClassConexionDAO {
       
         sql = "UPDATE cliente SET ";
         sql = sql + "nombre="+Validaciones.Apost(cliente.getNombre())+",";
-        sql = sql + "segNombre="+Validaciones.Apost(cliente.getSegNombre())+ ",";
+        sql = sql + "segnombre="+Validaciones.Apost(cliente.getSegNombre())+ ",";
         sql = sql + "apellido="+Validaciones.Apost(cliente.getApellido())+",";
-        sql = sql + "segApellido="+Validaciones.Apost(cliente.getSegApellido())+ ",";
+        sql = sql + "segapellido="+Validaciones.Apost(cliente.getSegApellido())+ ",";
         sql = sql + "direccion="+Validaciones.Apost(cliente.getDireccion())+",";
         sql = sql + "telefono="+Validaciones.Apost(cliente.getTelefono())+",";
         sql = sql + "fechanac="+Validaciones.Apost(cliente.getFechaNacimiento())+",";
         sql = sql + "sexo="+Validaciones.Apost(cliente.getSexo())+",";
-        sql = sql + "email="+Validaciones.Apost(cliente.getEmail()) + ",";
+        sql = sql + "email="+Validaciones.Apost(cliente.getEmail()) + " ";
         sql=sql +"WHERE cedula="+Validaciones.Apost(cliente.getCedula());
       
        
