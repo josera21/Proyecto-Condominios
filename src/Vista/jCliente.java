@@ -58,6 +58,7 @@ public class jCliente extends javax.swing.JFrame {
         jTextFieldSegApellido = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
         jTextFieldEmail = new javax.swing.JTextField();
+        jButtonEliminar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -100,6 +101,8 @@ public class jCliente extends javax.swing.JFrame {
 
         jLabel11.setText("Correo");
 
+        jButtonEliminar.setText("Eliminar");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -109,9 +112,11 @@ public class jCliente extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jButtonGuardar)
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jButtonCancelar)
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButtonEliminar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jButtonSalir))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -205,7 +210,8 @@ public class jCliente extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonGuardar)
                     .addComponent(jButtonCancelar)
-                    .addComponent(jButtonSalir))
+                    .addComponent(jButtonSalir)
+                    .addComponent(jButtonEliminar))
                 .addGap(32, 32, 32))
         );
 
@@ -285,6 +291,10 @@ public class jCliente extends javax.swing.JFrame {
         return jButtonGuardar;
     }
 
+    public JButton getjButtonEliminar() {
+        return jButtonEliminar;
+    }
+    
     public JButton getjButtonSalir() {
         return jButtonSalir;
     }
@@ -295,12 +305,14 @@ public class jCliente extends javax.swing.JFrame {
     public void agregarListener(ActionListener action){
         this.jButtonGuardar.addActionListener(action);
         this.jButtonCancelar.addActionListener(action);
+        this.jButtonEliminar.addActionListener(action);
         this.jButtonSalir.addActionListener(action);
     }
     
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonCancelar;
+    private javax.swing.JButton jButtonEliminar;
     private javax.swing.JButton jButtonGuardar;
     private javax.swing.JButton jButtonSalir;
     private javax.swing.JComboBox<String> jComboBoxSexo;

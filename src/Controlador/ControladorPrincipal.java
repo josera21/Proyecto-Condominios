@@ -17,12 +17,8 @@ import java.awt.event.ActionListener;
 public class ControladorPrincipal implements ActionListener {
     
     private jPrincipal formPrincipal;
-    private Listas lisClie;
 
     public ControladorPrincipal(){
-        lisClie = new Listas();
-        lisClie.cargarClientes();
-        
         formPrincipal=new jPrincipal();
         formPrincipal.agregarListener(this);
         formPrincipal.setVisible(true);
@@ -31,7 +27,7 @@ public class ControladorPrincipal implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getSource().equals(formPrincipal.getjMenuItemCliente())){
-            new ControladorCliente(lisClie);
+            new ControladorCliente();
         }
     }
 }

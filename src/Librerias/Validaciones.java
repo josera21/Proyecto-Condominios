@@ -89,6 +89,21 @@ int res = JOptionPane.showOptionDialog(null, "Selecciona una Opcion", CaptionWin
 
 return res;
 }    
+
+
+public static int DosOpciones(String Op1, String Op2, String CaptionWin) 
+{
+    int optionType = JOptionPane.DEFAULT_OPTION;
+    int messageType = JOptionPane.QUESTION_MESSAGE;
+    Object[] selValues = {Op1, Op2};
+    
+    int res = JOptionPane.showOptionDialog(null, "Seleccione una Opcion", CaptionWin, 
+                                            optionType, messageType, null, 
+                                            selValues, selValues[0]);
+    
+    return res;
+}
+
 //-------------------------------
 public static int Generar_Aleatorio(int limite) 
       { 

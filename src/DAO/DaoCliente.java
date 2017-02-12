@@ -18,7 +18,7 @@ public class DaoCliente extends ClassConexionDAO {
     public void insertar(Cliente cliente){
         
         String sql = "INSERT INTO cliente(cedula, nombre, segnombre, apellido,"
-                + "segapellido, direccion, telefono,fechanac, sexo, email) VALUES(";
+                + "segapellido, direccion, telefono,fechanac, sexo, email, estatus) VALUES(";
                 
                 sql = sql + Validaciones.Apost(cliente.getCedula()) + ",";
                 sql = sql + Validaciones.Apost(cliente.getNombre())+ ",";
@@ -29,7 +29,8 @@ public class DaoCliente extends ClassConexionDAO {
                 sql = sql + Validaciones.Apost(cliente.getTelefono())+ ",";
                 sql = sql + Validaciones.Apost(cliente.getFechaNacimiento()) + ",";
                 sql = sql + Validaciones.Apost(cliente.getSexo()) + ",";
-                sql = sql + Validaciones.Apost(cliente.getEmail()) + ")";
+                sql = sql + Validaciones.Apost(cliente.getEmail()) + ",";
+                sql = sql + Validaciones.Apost("A") + ")";
                 PackageConeccion.ConeccionBD.ejecutar(sql);
         
     }
@@ -65,9 +66,19 @@ public class DaoCliente extends ClassConexionDAO {
         sql = sql + "fechanac="+Validaciones.Apost(cliente.getFechaNacimiento())+",";
         sql = sql + "sexo="+Validaciones.Apost(cliente.getSexo())+",";
         sql = sql + "email="+Validaciones.Apost(cliente.getEmail()) + " ";
-        sql=sql +"WHERE cedula="+Validaciones.Apost(cliente.getCedula());
+        sql = sql +"WHERE cedula="+Validaciones.Apost(cliente.getCedula());
       
        
+        PackageConeccion.ConeccionBD.ejecutar(sql);
+    }
+    
+    public void eliminarCliente(Cliente cliente) {
+        String sql;
+        
+        sql = "UPDATE cliente SET ";
+        sql = sql + "estatus="+Validaciones.Apost("E")+" ";
+        sql = sql + "WHERE cedula="+Validaciones.Apost(cliente.getCedula());
+        
         PackageConeccion.ConeccionBD.ejecutar(sql);
     }
 }
