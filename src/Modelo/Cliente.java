@@ -11,7 +11,7 @@ package Modelo;
  */
 public class Cliente extends Persona {
     
-    String email, segNombre, segApellido;
+    private String email, segNombre, segApellido;
     
     public Cliente(String cedula,String nombre, String segNombre,String apellido,
                    String segApellido, String direccion,String telefono, 
