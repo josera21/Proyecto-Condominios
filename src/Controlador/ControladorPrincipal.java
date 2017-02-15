@@ -29,5 +29,9 @@ public class ControladorPrincipal implements ActionListener {
         if(e.getSource().equals(formPrincipal.getjMenuItemCliente())){
             new ControladorCliente();
         }
+        
+        if(e.getSource().equals(formPrincipal.getjMenuItemCasa())){
+            new ControladorCasa();
+        }
     }
 }

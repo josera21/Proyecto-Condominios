@@ -295,6 +295,7 @@ public class ControladorCliente implements ActionListener, KeyListener {
         
         if(e.getSource().equals(formCliente.getjButtonSalir())){
             new ControladorPrincipal();
+            formCliente.dispose();
         }
     }
 
