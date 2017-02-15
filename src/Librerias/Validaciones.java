@@ -124,11 +124,11 @@ public static String Apost(String Texto)
    
 // AGREGANDO MAS VALIDACIONES
 
-public static void ValidarSoloNumeros(KeyEvent e, String ced){
+public static void ValidarSoloNumeros(KeyEvent e, String cadena){
     
     char digito;
     
-    if(ced.length() == 8){
+    if(cadena.length() == 8){
         e.consume();
     }
     

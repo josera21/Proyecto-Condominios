@@ -41,16 +41,12 @@ public class ControladorCasa implements ActionListener, KeyListener {
                     Logger.getLogger(ControladorCasa.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
-            
-            public void keyTiped(KeyEvent e){
-                Validaciones.ValidarSoloNumeros(e, formCasa.getjTextFieldCodigo().getText());
-            }
-            
         });
         
         formCasa.getjTextFieldHabitaciones().addKeyListener(new KeyAdapter() {
             
-            public void keyTiped(KeyEvent e){
+            @Override
+            public void keyTyped(KeyEvent e){
                 Validaciones.ValidarSoloNumeros(e, formCasa.getjTextFieldHabitaciones().getText());
             }
             
@@ -58,7 +54,8 @@ public class ControladorCasa implements ActionListener, KeyListener {
         
         formCasa.getjTextFieldBannios().addKeyListener(new KeyAdapter() {
             
-            public void keyTiped(KeyEvent e){
+            @Override
+            public void keyTyped(KeyEvent e){
                 Validaciones.ValidarSoloNumeros(e, formCasa.getjTextFieldBannios().getText());
             }
             
@@ -66,7 +63,8 @@ public class ControladorCasa implements ActionListener, KeyListener {
         
         formCasa.getjTextFieldTelefono().addKeyListener(new KeyAdapter() {
             
-            public void keyTiped(KeyEvent e){
+            @Override
+            public void keyTyped(KeyEvent e){
                 Validaciones.ValidarSoloNumeros(e, formCasa.getjTextFieldTelefono().getText());
             }
             
@@ -83,6 +81,14 @@ public class ControladorCasa implements ActionListener, KeyListener {
     }
     
     private void codigoKeyPressed(KeyEvent key) throws SQLException {
+        
+        String cadena;
+        
+        cadena = formCasa.getjTextFieldCodigo().getText().trim();
+        
+        if(key.getKeyChar()==10 && cadena.length()==8) {
+            
+        }
         
     }
     

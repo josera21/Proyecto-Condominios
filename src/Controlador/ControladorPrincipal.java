@@ -28,10 +28,17 @@ public class ControladorPrincipal implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if(e.getSource().equals(formPrincipal.getjMenuItemCliente())){
             new ControladorCliente();
+            formPrincipal.dispose();
         }
         
         if(e.getSource().equals(formPrincipal.getjMenuItemCasa())){
             new ControladorCasa();
+            formPrincipal.dispose();
+        }
+        
+        if(e.getSource().equals(formPrincipal.getjMenuItemUrb())){
+            new ControladorUrbanizacion();
+            formPrincipal.dispose();
         }
     }
 }

@@ -34,6 +34,7 @@ public class jPrincipal extends javax.swing.JFrame {
         jMenu1 = new javax.swing.JMenu();
         jMenuItemCliente = new javax.swing.JMenuItem();
         jMenuItemCasa = new javax.swing.JMenuItem();
+        jMenuItemUrb = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -45,6 +46,9 @@ public class jPrincipal extends javax.swing.JFrame {
 
         jMenuItemCasa.setText("Casa");
         jMenu1.add(jMenuItemCasa);
+
+        jMenuItemUrb.setText("Urbanizacion");
+        jMenu1.add(jMenuItemUrb);
 
         jMenuBar1.add(jMenu1);
 
@@ -79,9 +83,14 @@ public class jPrincipal extends javax.swing.JFrame {
         return jMenuItemCasa;
     }
     
+    public JMenuItem getjMenuItemUrb() {
+        return jMenuItemUrb;
+    }
+    
     public void agregarListener(ActionListener action){
         this.jMenuItemCliente.addActionListener(action);
         this.jMenuItemCasa.addActionListener(action);
+        this.jMenuItemUrb.addActionListener(action);
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -90,5 +99,6 @@ public class jPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItemCasa;
     private javax.swing.JMenuItem jMenuItemCliente;
+    private javax.swing.JMenuItem jMenuItemUrb;
     // End of variables declaration//GEN-END:variables
 }
