@@ -9,6 +9,9 @@ import Modelo.Listas;
 import Vista.jPrincipal;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -39,6 +42,26 @@ public class ControladorPrincipal implements ActionListener {
         if(e.getSource().equals(formPrincipal.getjMenuItemUrb())){
             new ControladorUrbanizacion();
             formPrincipal.dispose();
+        }
+        
+        if(e.getSource().equals(formPrincipal.getjMenuItemGastoExtra())){
+            
+            try {
+                new ControladorGastoExtraordinario();
+                formPrincipal.dispose();
+            } catch (SQLException ex) {
+                Logger.getLogger(ControladorPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+        }
+        
+        if(e.getSource().equals(formPrincipal.getjMenuItemReporteGastoEx())){
+            try {
+                new ControladorConsultarGExtra();
+                formPrincipal.dispose();
+            } catch (SQLException ex) {
+                Logger.getLogger(ControladorPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
     }
 }

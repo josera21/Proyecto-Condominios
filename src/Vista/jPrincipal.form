@@ -24,12 +24,24 @@
                 <Property name="text" type="java.lang.String" value="Urbanizacion"/>
               </Properties>
             </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuItemGastosExtra">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Gastos Extra"/>
+              </Properties>
+            </MenuItem>
           </SubComponents>
         </Menu>
-        <Menu class="javax.swing.JMenu" name="jMenu2">
+        <Menu class="javax.swing.JMenu" name="jMenuReportes">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Edit"/>
+            <Property name="text" type="java.lang.String" value="Reportes"/>
           </Properties>
+          <SubComponents>
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuItemReporteGastoExtra">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Gastos Extras"/>
+              </Properties>
+            </MenuItem>
+          </SubComponents>
         </Menu>
       </SubComponents>
     </Menu>

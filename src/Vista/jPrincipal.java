@@ -35,7 +35,9 @@ public class jPrincipal extends javax.swing.JFrame {
         jMenuItemCliente = new javax.swing.JMenuItem();
         jMenuItemCasa = new javax.swing.JMenuItem();
         jMenuItemUrb = new javax.swing.JMenuItem();
-        jMenu2 = new javax.swing.JMenu();
+        jMenuItemGastosExtra = new javax.swing.JMenuItem();
+        jMenuReportes = new javax.swing.JMenu();
+        jMenuItemReporteGastoExtra = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -50,10 +52,17 @@ public class jPrincipal extends javax.swing.JFrame {
         jMenuItemUrb.setText("Urbanizacion");
         jMenu1.add(jMenuItemUrb);
 
+        jMenuItemGastosExtra.setText("Gastos Extra");
+        jMenu1.add(jMenuItemGastosExtra);
+
         jMenuBar1.add(jMenu1);
 
-        jMenu2.setText("Edit");
-        jMenuBar1.add(jMenu2);
+        jMenuReportes.setText("Reportes");
+
+        jMenuItemReporteGastoExtra.setText("Gastos Extras");
+        jMenuReportes.add(jMenuItemReporteGastoExtra);
+
+        jMenuBar1.add(jMenuReportes);
 
         setJMenuBar(jMenuBar1);
 
@@ -87,18 +96,30 @@ public class jPrincipal extends javax.swing.JFrame {
         return jMenuItemUrb;
     }
     
+    public JMenuItem getjMenuItemGastoExtra() {
+        return jMenuItemGastosExtra;
+    }
+    
+    public JMenuItem getjMenuItemReporteGastoEx() {
+        return jMenuItemReporteGastoExtra;
+    }
+    
     public void agregarListener(ActionListener action){
         this.jMenuItemCliente.addActionListener(action);
         this.jMenuItemCasa.addActionListener(action);
         this.jMenuItemUrb.addActionListener(action);
+        this.jMenuItemGastosExtra.addActionListener(action);
+        this.jMenuItemReporteGastoExtra.addActionListener(action);
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItemCasa;
     private javax.swing.JMenuItem jMenuItemCliente;
+    private javax.swing.JMenuItem jMenuItemGastosExtra;
+    private javax.swing.JMenuItem jMenuItemReporteGastoExtra;
     private javax.swing.JMenuItem jMenuItemUrb;
+    private javax.swing.JMenu jMenuReportes;
     // End of variables declaration//GEN-END:variables
 }

@@ -83,7 +83,7 @@ public class ControladorUrbanizacion implements KeyListener, ActionListener {
             regUrb = daoUrb.buscarUrbanizacion(cadena);
             if(regUrb.next()){
                 if(regUrb.getString("estatus").equalsIgnoreCase("A")){
-                    formUrb.getjTextFieldCodigo().setText(regUrb.getString("codigo"));
+                    formUrb.getjTextFieldCodigo().setText(regUrb.getString("idurbanizacion"));
                     formUrb.getjTextFieldNombre().setText(regUrb.getString("nombre"));
                     formUrb.getjTextFieldDireccion().setText(regUrb.getString("direccion"));
                     
@@ -166,6 +166,7 @@ public class ControladorUrbanizacion implements KeyListener, ActionListener {
     private void cancelar(){
         enabled(false);
         formUrb.getjTextFieldCodigo().requestFocusInWindow();
+        formUrb.getjTextFieldCodigo().setText("");
         formUrb.getjTextFieldNombre().setText("");
         formUrb.getjTextFieldDireccion().setText("");
         formUrb.getjButtonGuardar().setText("Guardar");

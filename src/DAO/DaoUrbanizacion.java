@@ -17,7 +17,7 @@ public class DaoUrbanizacion extends ClassConexionDAO {
     
     public void insertar(Urbanizacion urb){
         
-        String sql = "INSERT INTO urbanizacion(codigo, nombre, direccion, estatus) VALUES(";
+        String sql = "INSERT INTO urbanizacion(idurbanizacion, nombre, direccion, estatus) VALUES(";
                 
                 sql = sql + Validaciones.Apost(urb.getIdUrbanizacion()) + ",";
                 sql = sql + Validaciones.Apost(urb.getNombre())+ ",";
@@ -30,16 +30,16 @@ public class DaoUrbanizacion extends ClassConexionDAO {
         
         ResultSet registro;
         
-        String sql = "SELECT * FROM urbanizacion WHERE codigo="+Validaciones.Apost(codigo);
+        String sql = "SELECT * FROM urbanizacion WHERE idurbanizacion="+Validaciones.Apost(codigo);
         
         registro = PackageConeccion.ConeccionBD.consultar(sql);
         return registro;
     }
     
-    public ResultSet cargarUrbanizacion() {
+    public ResultSet cargarIdUrbanizacion() {
         ResultSet registro;
         
-        String sql = "SELECT * FROM urbanizacion";
+        String sql = "SELECT idurbanizacion FROM urbanizacion WHERE estatus='A'";
         registro = PackageConeccion.ConeccionBD.consultar(sql);
         return registro;
     }
@@ -49,8 +49,8 @@ public class DaoUrbanizacion extends ClassConexionDAO {
       
         sql = "UPDATE urbanizacion SET ";
         sql = sql + "nombre="+Validaciones.Apost(urb.getNombre())+",";
-        sql = sql + "direccion="+Validaciones.Apost(urb.getDireccion())+",";
-        sql = sql +"WHERE codigo="+Validaciones.Apost(urb.getIdUrbanizacion());
+        sql = sql + "direccion="+Validaciones.Apost(urb.getDireccion())+" ";
+        sql = sql +"WHERE idurbanizacion="+Validaciones.Apost(urb.getIdUrbanizacion());
       
        
         PackageConeccion.ConeccionBD.ejecutar(sql);
@@ -61,7 +61,7 @@ public class DaoUrbanizacion extends ClassConexionDAO {
         
         sql = "UPDATE urbanizacion SET ";
         sql = sql + "estatus="+Validaciones.Apost("E")+" ";
-        sql = sql + "WHERE codigo="+Validaciones.Apost(urb.getIdUrbanizacion());
+        sql = sql + "WHERE idurbanizacion="+Validaciones.Apost(urb.getIdUrbanizacion());
         
         PackageConeccion.ConeccionBD.ejecutar(sql);
     }

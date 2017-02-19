@@ -12,6 +12,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.Locale;
+import java.util.concurrent.ThreadLocalRandom;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
@@ -110,6 +111,10 @@ public static int Generar_Aleatorio(int limite)
          return (int) (Math.random()*limite+1)-1;
       }
 //----------------------------------------
+public static int Generar_Aleatorio_Interevalo(int min, int max) {
+    return ThreadLocalRandom.current().nextInt(min, max + 1);
+}
+
 public static Date sumarFechasDias(Date fch, int dias) {
         Calendar cal = new GregorianCalendar();
         cal.setTimeInMillis(fch.getTime());
