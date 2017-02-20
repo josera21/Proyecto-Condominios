@@ -5,7 +5,10 @@
  */
 package Librerias;
 
+import DAO.DaoGastoExtraordinario;
 import java.awt.event.KeyEvent;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -13,6 +16,9 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.Locale;
 import java.util.concurrent.ThreadLocalRandom;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
@@ -161,4 +167,32 @@ public static boolean ValidarCamposVacios(JTextField... jText) {
     return false;
 }
 
+public static boolean validarGastosExtrasMes(String fecha, JComboBox jComboUrb) {
+    
+        DaoGastoExtraordinario daoEx = new DaoGastoExtraordinario();
+        ResultSet rs;
+        String mes, urbSeleccionada, cadena;
+        int cont = 0;
+        boolean validar = false;
+        
+        cadena = fecha;   //jTextFecha.getText();
+        urbSeleccionada = (String)jComboUrb.getSelectedItem();
+        mes = cadena.substring(3, 5);
+        try {
+           rs = daoEx.buscarGastoMes(urbSeleccionada, mes);
+           while(rs.next()) {
+                cont++;
+           }
+           
+           if(cont < 3) {
+                validar = true;
+            }
+        } catch (SQLException ex){
+            Logger.getLogger(Validaciones.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return validar;
+    }
 }
+
+

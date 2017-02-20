@@ -92,4 +92,16 @@ public class DaoGastoExtraordinario extends ClassConexionDAO  {
         registro = PackageConeccion.ConeccionBD.consultar(sql);
         return registro;
     } 
+    
+    public ResultSet buscarGastoMes(String idUrb, String mes) throws SQLException {
+        ResultSet registro;
+        mes = mes.trim();
+        String sql = "SELECT * FROM gastoextra "
+                + "WHERE idurbanizacion="+Validaciones.Apost(idUrb);
+               sql = sql + " AND estatus='A' ";
+               sql = sql + "AND extract(MONTH from fecha) ='"+mes+"'";
+        registro = PackageConeccion.ConeccionBD.consultar(sql);
+        
+        return registro;
+    }
 }

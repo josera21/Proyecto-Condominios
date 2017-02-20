@@ -6,21 +6,19 @@
 package Vista;
 
 import java.awt.event.ActionListener;
-import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JScrollPane;
-import javax.swing.JTable;
 
 /**
  *
  * @author josera
  */
-public class jConsultarGastosExtras extends javax.swing.JFrame {
+public class jConsultarGastosFIjos extends javax.swing.JFrame {
 
     /**
-     * Creates new form jConsultarGastosExtras
+     * Creates new form jConsultarGastosFIjos
      */
-    public jConsultarGastosExtras() {
+    public jConsultarGastosFIjos() {
         initComponents();
     }
 
@@ -34,32 +32,18 @@ public class jConsultarGastosExtras extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jComboBoxUrb = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jTableGastoExtra = new javax.swing.JTable();
+        jComboBoxUrb = new javax.swing.JComboBox<>();
+        jScrollPane1 = new javax.swing.JScrollPane();
         jButtonSalir = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Consulta de Gastos Extraordinarios"));
-
-        jComboBoxUrb.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione" }));
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Gastos Mensules Fijos por urbanizacion"));
 
         jLabel1.setText("Urbanizaciones");
 
-        jTableGastoExtra.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
-            },
-            new String [] {
-                "Descripcion", "Monto", "Fecha"
-            }
-        ));
-        jScrollPane2.setViewportView(jTableGastoExtra);
+        jComboBoxUrb.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione" }));
 
         jButtonSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Volver-48.png"))); // NOI18N
         jButtonSalir.setText("Salir");
@@ -69,16 +53,19 @@ public class jConsultarGastosExtras extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jComboBoxUrb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel1))
-                        .addGap(52, 52, 52)
-                        .addComponent(jButtonSalir)
-                        .addGap(64, 64, 64))
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 453, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 12, Short.MAX_VALUE))
+                        .addGap(126, 126, 126)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jComboBoxUrb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 78, Short.MAX_VALUE)
+                                .addComponent(jButtonSalir))
+                            .addComponent(jLabel1)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane1)))
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -86,12 +73,12 @@ public class jConsultarGastosExtras extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButtonSalir)
-                    .addComponent(jComboBoxUrb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(28, 28, 28)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(46, Short.MAX_VALUE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jComboBoxUrb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButtonSalir))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -131,31 +118,26 @@ public class jConsultarGastosExtras extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(jConsultarGastosExtras.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(jConsultarGastosFIjos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(jConsultarGastosExtras.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(jConsultarGastosFIjos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(jConsultarGastosExtras.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(jConsultarGastosFIjos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(jConsultarGastosExtras.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(jConsultarGastosFIjos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new jConsultarGastosExtras().setVisible(true);
+                new jConsultarGastosFIjos().setVisible(true);
             }
         });
     }
-    
+
     public JComboBox getjComboBoxUrb() {
         return jComboBoxUrb;
-    }
-    
-    
-    public JButton getjButtonSalir() {
-        return jButtonSalir;
     }
     
     public void agregarListener(ActionListener action) {
@@ -163,15 +145,14 @@ public class jConsultarGastosExtras extends javax.swing.JFrame {
     }
     
     public JScrollPane getjScrollPane() {
-        return jScrollPane2;
+        return jScrollPane1;
     }
-
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonSalir;
     private javax.swing.JComboBox<String> jComboBoxUrb;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable jTableGastoExtra;
+    private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }

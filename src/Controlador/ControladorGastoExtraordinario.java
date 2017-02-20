@@ -12,6 +12,8 @@ import Modelo.GastoExtraordinario;
 import Vista.jGastoExtraordinario;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
@@ -33,7 +35,7 @@ public class ControladorGastoExtraordinario implements ActionListener, KeyListen
         formGastoExtra = new jGastoExtraordinario();
         formGastoExtra.agregarListener(this);
         formGastoExtra.setVisible(true);
-        
+        formGastoExtra.getjTextFieldCodigo().setEditable(false);
         enabled(false);
         cargarUrbanizacion();
         
@@ -66,7 +68,11 @@ public class ControladorGastoExtraordinario implements ActionListener, KeyListen
             }
         });
         
-        
+        formGastoExtra.getjComboBoxUrb().addItemListener((ItemEvent e) -> {
+            if(e.getStateChange() == ItemEvent.SELECTED) {
+                formGastoExtra.getjTextFieldCodigo().setEditable(true);
+            }
+        });
     }
     
     
@@ -128,16 +134,18 @@ public class ControladorGastoExtraordinario implements ActionListener, KeyListen
         }
         
     }
-    
+     
     private void guardar() throws SQLException {
         GastoExtraordinario gastoEx;
         DaoGastoExtraordinario daoExtra = new DaoGastoExtraordinario();
         ResultSet regGastoEx;
         String cadena, urbSeleccionada;
         double monto;
+        boolean aprobar;
         
         if(formGastoExtra.getjButtonGuardar().getText().equalsIgnoreCase("Modificar")) {
             enabled(true);
+            enabledTextCodigo(false);
             formGastoExtra.getjButtonGuardar().setText("Guardar");
             return;
         }
@@ -151,7 +159,7 @@ public class ControladorGastoExtraordinario implements ActionListener, KeyListen
         }
         
         cadena = formGastoExtra.getjTextFieldFecha().getText().trim();
-        
+    
         if(!Validaciones.isDate(cadena)){
             Validaciones.Aviso("Error en la Fecha", "Gestion de Gastos");
             formGastoExtra.getjTextFieldFecha().requestFocusInWindow();
@@ -168,6 +176,13 @@ public class ControladorGastoExtraordinario implements ActionListener, KeyListen
         cadena = formGastoExtra.getjTextFieldCodigo().getText().trim();
         urbSeleccionada = (String)formGastoExtra.getjComboBoxUrb().getSelectedItem();
         monto = Double.parseDouble(formGastoExtra.getjTextFieldMonto().getText());
+        String fecha = formGastoExtra.getjTextFieldFecha().getText();
+        aprobar = Validaciones.validarGastosExtrasMes(fecha,
+                                            formGastoExtra.getjComboBoxUrb());
+        if(!aprobar) {
+            Validaciones.Aviso("No se puede Registrar otro Gasto este Mes", "Gestion de Gastos");
+            return;
+        }
         
         gastoEx = new GastoExtraordinario(cadena, formGastoExtra.getjTextFieldDescripcion().getText(),
                                           formGastoExtra.getjTextFieldFecha().getText(),monto);
@@ -213,6 +228,7 @@ public class ControladorGastoExtraordinario implements ActionListener, KeyListen
     
     private void cancelar() {
         enabled(false);
+        enabledTextCodigo(false);
         formGastoExtra.getjTextFieldCodigo().setText("");
         formGastoExtra.getjTextFieldDescripcion().setText("");
         formGastoExtra.getjTextFieldFecha().setText("");
@@ -222,12 +238,15 @@ public class ControladorGastoExtraordinario implements ActionListener, KeyListen
     }
     
     public void enabled(boolean status) {
-        formGastoExtra.getjTextFieldCodigo().setEditable(!status);
         formGastoExtra.getjTextFieldDescripcion().setEditable(status);
         formGastoExtra.getjTextFieldFecha().setEditable(status);
         formGastoExtra.getjTextFieldMonto().setEditable(status);
     }
 
+    public void enabledTextCodigo(boolean status){
+        formGastoExtra.getjTextFieldCodigo().setEditable(status);
+    }
+    
     @Override
     public void actionPerformed(ActionEvent e) {
         

@@ -37,20 +37,10 @@ public class Condominio {
         return Validaciones.Generar_Aleatorio_Interevalo(30000, 60000);
     }
     
-    public double calcularGastoExtra() {
-        // el numero de gastos extra que tendra sera Random. 
-        int nroGasto = Validaciones.Generar_Aleatorio(3);
-        for(int i=0; i<nroGasto; i++) {
-            acumGasto = gastoEx[i].getMontoGastoEx();
-        }
-        return acumGasto;
-    }
-    
     public double calcularGastoMensual() {
         double gasto;
         gasto = calcularGastoLuz() + calcularGastoAgua() + calcularGastoAseo() +
-                calcularGastoVigilancia() + calcularGastoJardineria() + 
-                calcularGastoExtra();
+                calcularGastoVigilancia() + calcularGastoJardineria();
         return gasto;
     }
     

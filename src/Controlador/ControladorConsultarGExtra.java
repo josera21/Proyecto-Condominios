@@ -18,6 +18,8 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -26,6 +28,8 @@ import javax.swing.JOptionPane;
 public class ControladorConsultarGExtra implements ActionListener {
     
     private jConsultarGastosExtras formConsulta;
+    private DefaultTableModel modelo;
+    private JTable tabla;
     
     public ControladorConsultarGExtra() throws SQLException {
         formConsulta = new jConsultarGastosExtras();
@@ -33,10 +37,22 @@ public class ControladorConsultarGExtra implements ActionListener {
         formConsulta.setVisible(true);
         cargarIdUrbanizacion();
         
+        modelo = new DefaultTableModel() {
+            @Override
+            public boolean isCellEditable(int fila, int columna) {
+                return false;
+            }
+        };
+        
+        // Agregando las columnas de la tabla
+        modelo.addColumn("Descripcion");
+        modelo.addColumn("Monto");
+        modelo.addColumn("Fecha");
+        
         formConsulta.getjComboBoxUrb().addItemListener((ItemEvent e) -> {
             if(e.getStateChange() == ItemEvent.SELECTED) {
                 try {
-                    asignarValoresTabla();
+                    llenarTabla();
                 } catch (SQLException ex) {
                     Logger.getLogger(ControladorConsultarGExtra.class.getName()).log(Level.SEVERE, null, ex);
                 }
@@ -62,23 +78,30 @@ public class ControladorConsultarGExtra implements ActionListener {
     }
     
     
-    private void asignarValoresTabla() throws SQLException {
-        ResultSet regExtra;
+    public void vaciarTabla(){
+        while (modelo.getRowCount() > 0) modelo.removeRow(0);
+    }
+    
+    private void llenarTabla() throws SQLException {
+        ResultSet rs;
         DaoGastoExtraordinario daoExtra = new DaoGastoExtraordinario();
-        int fila = 0;
+        String urbSeleccionada;
+        vaciarTabla();
+        tabla = new JTable(modelo);
         
         try {
-            String urbSeleccionada;
             urbSeleccionada =  (String)formConsulta.getjComboBoxUrb().getSelectedItem();
-            regExtra = daoExtra.gastoExtraPorUrb(urbSeleccionada);
-            
-            while(regExtra.next()) {
-                formConsulta.getjTableGastoExtra().setValueAt(regExtra.getString("descripcion"), fila, 0);
-                formConsulta.getjTableGastoExtra().setValueAt(regExtra.getString("monto"), fila, 1);
-                formConsulta.getjTableGastoExtra().setValueAt(regExtra.getString("fecha"), fila, 2);
-                fila++;
+        
+            rs = daoExtra.gastoExtraPorUrb(urbSeleccionada);
+            formConsulta.getjScrollPane().setViewportView(tabla);
+            while(rs.next()) {
+                Object[] fila = new Object[3];
+                fila[0] = rs.getString("descripcion"); 
+                fila[1] = rs.getDouble("monto");
+                fila[2] = rs.getString("fecha");
+                modelo.addRow(fila);
             }
-            
+        
         } catch (SQLException ex){
             JOptionPane.showMessageDialog(formConsulta, ex);
         }
