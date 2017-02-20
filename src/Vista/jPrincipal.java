@@ -36,8 +36,10 @@ public class jPrincipal extends javax.swing.JFrame {
         jMenuItemCasa = new javax.swing.JMenuItem();
         jMenuItemUrb = new javax.swing.JMenuItem();
         jMenuItemGastosExtra = new javax.swing.JMenuItem();
+        jMenuItemGastoFijo = new javax.swing.JMenuItem();
         jMenuReportes = new javax.swing.JMenu();
         jMenuItemReporteGastoExtra = new javax.swing.JMenuItem();
+        jMenuItemReporteGastoFijo = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -55,12 +57,18 @@ public class jPrincipal extends javax.swing.JFrame {
         jMenuItemGastosExtra.setText("Gastos Extra");
         jMenu1.add(jMenuItemGastosExtra);
 
+        jMenuItemGastoFijo.setText("Gastos Fijos");
+        jMenu1.add(jMenuItemGastoFijo);
+
         jMenuBar1.add(jMenu1);
 
         jMenuReportes.setText("Reportes");
 
         jMenuItemReporteGastoExtra.setText("Gastos Extras");
         jMenuReportes.add(jMenuItemReporteGastoExtra);
+
+        jMenuItemReporteGastoFijo.setText("Gastos Fijos");
+        jMenuReportes.add(jMenuItemReporteGastoFijo);
 
         jMenuBar1.add(jMenuReportes);
 
@@ -100,6 +108,14 @@ public class jPrincipal extends javax.swing.JFrame {
         return jMenuItemGastosExtra;
     }
     
+    public JMenuItem getjMenuItemGastoFijo() {
+        return jMenuItemGastoFijo;
+    }
+    
+    public JMenuItem getjMenuItemReporteGastoFijo() {
+        return jMenuItemReporteGastoFijo;
+    }
+    
     public JMenuItem getjMenuItemReporteGastoEx() {
         return jMenuItemReporteGastoExtra;
     }
@@ -110,6 +126,8 @@ public class jPrincipal extends javax.swing.JFrame {
         this.jMenuItemUrb.addActionListener(action);
         this.jMenuItemGastosExtra.addActionListener(action);
         this.jMenuItemReporteGastoExtra.addActionListener(action);
+        this.jMenuItemGastoFijo.addActionListener(action);
+        this.jMenuItemReporteGastoFijo.addActionListener(action);
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -117,8 +135,10 @@ public class jPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItemCasa;
     private javax.swing.JMenuItem jMenuItemCliente;
+    private javax.swing.JMenuItem jMenuItemGastoFijo;
     private javax.swing.JMenuItem jMenuItemGastosExtra;
     private javax.swing.JMenuItem jMenuItemReporteGastoExtra;
+    private javax.swing.JMenuItem jMenuItemReporteGastoFijo;
     private javax.swing.JMenuItem jMenuItemUrb;
     private javax.swing.JMenu jMenuReportes;
     // End of variables declaration//GEN-END:variables

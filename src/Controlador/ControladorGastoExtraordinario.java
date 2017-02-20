@@ -154,7 +154,7 @@ public class ControladorGastoExtraordinario implements ActionListener, KeyListen
                                             formGastoExtra.getjTextFieldDescripcion(),
                                             formGastoExtra.getjTextFieldFecha(),
                                             formGastoExtra.getjTextFieldMonto())){
-            Validaciones.Aviso("Hay campos vacios", "Gestion de Cliente");
+            Validaciones.Aviso("Hay campos vacios", "Gestion de Gasto");
             return;
         }
         
@@ -177,8 +177,9 @@ public class ControladorGastoExtraordinario implements ActionListener, KeyListen
         urbSeleccionada = (String)formGastoExtra.getjComboBoxUrb().getSelectedItem();
         monto = Double.parseDouble(formGastoExtra.getjTextFieldMonto().getText());
         String fecha = formGastoExtra.getjTextFieldFecha().getText();
+        regGastoEx = daoExtra.buscarGastoMes(urbSeleccionada, fecha);
         aprobar = Validaciones.validarGastosExtrasMes(fecha,
-                                            formGastoExtra.getjComboBoxUrb());
+                                            formGastoExtra.getjComboBoxUrb(), 3, regGastoEx);
         if(!aprobar) {
             Validaciones.Aviso("No se puede Registrar otro Gasto este Mes", "Gestion de Gastos");
             return;

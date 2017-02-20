@@ -167,24 +167,17 @@ public static boolean ValidarCamposVacios(JTextField... jText) {
     return false;
 }
 
-public static boolean validarGastosExtrasMes(String fecha, JComboBox jComboUrb) {
-    
-        DaoGastoExtraordinario daoEx = new DaoGastoExtraordinario();
-        ResultSet rs;
-        String mes, urbSeleccionada, cadena;
+public static boolean validarGastosExtrasMes(String fecha, JComboBox jComboUrb, int tope,
+                                             ResultSet rs) {
         int cont = 0;
         boolean validar = false;
         
-        cadena = fecha;   //jTextFecha.getText();
-        urbSeleccionada = (String)jComboUrb.getSelectedItem();
-        mes = cadena.substring(3, 5);
         try {
-           rs = daoEx.buscarGastoMes(urbSeleccionada, mes);
            while(rs.next()) {
                 cont++;
            }
            
-           if(cont < 3) {
+           if(cont < tope) {
                 validar = true;
             }
         } catch (SQLException ex){

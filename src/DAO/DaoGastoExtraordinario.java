@@ -18,12 +18,7 @@ import javax.swing.JOptionPane;
  * @author josera
  */
 public class DaoGastoExtraordinario extends ClassConexionDAO  {
-    
-    private jGastoExtraordinario formGastoExtra;
-    
-    public DaoGastoExtraordinario() {
-         formGastoExtra = new jGastoExtraordinario();
-    }
+   
     
     public void insertarGasto(GastoExtraordinario gastoEx, String idUrb) {
         
@@ -95,11 +90,13 @@ public class DaoGastoExtraordinario extends ClassConexionDAO  {
     
     public ResultSet buscarGastoMes(String idUrb, String mes) throws SQLException {
         ResultSet registro;
-        mes = mes.trim();
+        String cadena = mes.substring(3, 5);
+        cadena = cadena.trim();
+        
         String sql = "SELECT * FROM gastoextra "
                 + "WHERE idurbanizacion="+Validaciones.Apost(idUrb);
                sql = sql + " AND estatus='A' ";
-               sql = sql + "AND extract(MONTH from fecha) ='"+mes+"'";
+               sql = sql + "AND extract(MONTH from fecha) ='"+cadena+"'";
         registro = PackageConeccion.ConeccionBD.consultar(sql);
         
         return registro;

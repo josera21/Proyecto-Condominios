@@ -63,5 +63,25 @@ public class ControladorPrincipal implements ActionListener {
                 Logger.getLogger(ControladorPrincipal.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
+        
+        if(e.getSource().equals(formPrincipal.getjMenuItemGastoFijo())){
+            
+            try {
+                new ControladorGastoFijo();
+                formPrincipal.dispose();
+            } catch (SQLException ex) {
+                Logger.getLogger(ControladorPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+        }
+        
+        if(e.getSource().equals(formPrincipal.getjMenuItemReporteGastoFijo())){
+            try {
+                new ControladorConsultarGFijo();
+                formPrincipal.dispose();
+            } catch (SQLException ex) {
+                Logger.getLogger(ControladorPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
     }
 }

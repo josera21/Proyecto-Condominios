@@ -11,30 +11,14 @@ package Modelo;
  */
 public class GastoMensual {
     
-    private String idGasto;
     private String fechaGasto;
     
-    public GastoMensual(String idGasto, String fechaGasto) {
-        this.idGasto = idGasto;
+    public GastoMensual(String fechaGasto) {
         this.fechaGasto = fechaGasto;
     }
     
     public GastoMensual() {
         super();
-    }
-
-    /**
-     * @return the idGasto
-     */
-    public String getIdGasto() {
-        return idGasto;
-    }
-
-    /**
-     * @param idGasto the idGasto to set
-     */
-    public void setIdGasto(String idGasto) {
-        this.idGasto = idGasto;
     }
 
     /**
@@ -50,7 +34,6 @@ public class GastoMensual {
     public void setFechaGasto(String fechaGasto) {
         this.fechaGasto = fechaGasto;
     }
-    
-    
+
     
 }

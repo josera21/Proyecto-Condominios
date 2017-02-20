@@ -29,6 +29,11 @@
                 <Property name="text" type="java.lang.String" value="Gastos Extra"/>
               </Properties>
             </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuItemGastoFijo">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Gastos Fijos"/>
+              </Properties>
+            </MenuItem>
           </SubComponents>
         </Menu>
         <Menu class="javax.swing.JMenu" name="jMenuReportes">
@@ -39,6 +44,11 @@
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItemReporteGastoExtra">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Gastos Extras"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuItemReporteGastoFijo">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Gastos Fijos"/>
               </Properties>
             </MenuItem>
           </SubComponents>
