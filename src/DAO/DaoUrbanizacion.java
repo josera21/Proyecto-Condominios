@@ -17,7 +17,7 @@ public class DaoUrbanizacion extends ClassConexionDAO {
     
     public void insertar(Urbanizacion urb){
         
-        String sql = "INSERT INTO urbanizacion(idurbanizacion, nombre, direccion, estatus) VALUES(";
+        String sql = "INSERT INTO \"TUrbanizacion\"(\"ID_Urbanizacion\", \"Nombre_Urbanizacion\", \"Direccion_Urbanizacion\", estatus) VALUES(";
                 
                 sql = sql + Validaciones.Apost(urb.getIdUrbanizacion()) + ",";
                 sql = sql + Validaciones.Apost(urb.getNombre())+ ",";
@@ -30,7 +30,7 @@ public class DaoUrbanizacion extends ClassConexionDAO {
         
         ResultSet registro;
         
-        String sql = "SELECT * FROM urbanizacion WHERE idurbanizacion="+Validaciones.Apost(codigo);
+        String sql = "SELECT * FROM \"TUrbanizacion\" WHERE \"ID_Urbanizacion\"="+Validaciones.Apost(codigo);
         
         registro = PackageConeccion.ConeccionBD.consultar(sql);
         return registro;
@@ -39,7 +39,7 @@ public class DaoUrbanizacion extends ClassConexionDAO {
     public ResultSet cargarIdUrbanizacion() {
         ResultSet registro;
         
-        String sql = "SELECT idurbanizacion FROM urbanizacion WHERE estatus='A'";
+        String sql = "SELECT \"ID_Urbanizacion\" FROM \"TUrbanizacion\" WHERE estatus='A'";
         registro = PackageConeccion.ConeccionBD.consultar(sql);
         return registro;
     }
@@ -47,10 +47,10 @@ public class DaoUrbanizacion extends ClassConexionDAO {
     public void modificarUrbanizacion(Urbanizacion urb) {
         String sql;
       
-        sql = "UPDATE urbanizacion SET ";
-        sql = sql + "nombre="+Validaciones.Apost(urb.getNombre())+",";
-        sql = sql + "direccion="+Validaciones.Apost(urb.getDireccion())+" ";
-        sql = sql +"WHERE idurbanizacion="+Validaciones.Apost(urb.getIdUrbanizacion());
+        sql = "UPDATE \"TUrbanizacion\" SET ";
+        sql = sql + "\"Nombre_Urbanizacion\"="+Validaciones.Apost(urb.getNombre())+",";
+        sql = sql + "\"Direccion_Urbanizacion\"="+Validaciones.Apost(urb.getDireccion())+" ";
+        sql = sql +"WHERE \"ID_Urbanizacion\"="+Validaciones.Apost(urb.getIdUrbanizacion());
       
        
         PackageConeccion.ConeccionBD.ejecutar(sql);
@@ -59,9 +59,9 @@ public class DaoUrbanizacion extends ClassConexionDAO {
     public void eliminarUrbanizacion(Urbanizacion urb) {
         String sql;
         
-        sql = "UPDATE urbanizacion SET ";
+        sql = "UPDATE \"TUrbanizacion\" SET ";
         sql = sql + "estatus="+Validaciones.Apost("E")+" ";
-        sql = sql + "WHERE idurbanizacion="+Validaciones.Apost(urb.getIdUrbanizacion());
+        sql = sql + "WHERE \"ID_Urbanizacion\"="+Validaciones.Apost(urb.getIdUrbanizacion());
         
         PackageConeccion.ConeccionBD.ejecutar(sql);
     }

@@ -19,7 +19,12 @@ public class Edificio {
         this.nroPisos = nroPisos;
         this.nroAptoPiso = nroAptoPiso;
     }
-
+    
+    public Edificio()
+    {
+        
+    }
+    
     /**
      * @return the idEdificio
      */

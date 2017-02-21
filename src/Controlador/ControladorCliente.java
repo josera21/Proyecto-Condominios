@@ -122,7 +122,7 @@ public class ControladorCliente implements ActionListener, KeyListener {
         if(key.getKeyChar()==10 && cadena.length()<=8 && cadena.length()>=7){
             regCliente = daoCliente.buscarCliente(cadena);
             if(regCliente.next()){
-                if(regCliente.getString("estatus").equalsIgnoreCase("A")){
+                if(regCliente.getString("status").equalsIgnoreCase("A")){
                     formCliente.getjTextFieldCedula().setText(regCliente.getString("cedula"));
                     formCliente.getjTextFieldNombre().setText(regCliente.getString("nombre"));
                     formCliente.getjTextFieldSegNombre().setText(regCliente.getString("segNombre"));

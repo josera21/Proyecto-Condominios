@@ -16,6 +16,11 @@ public class Vivienda {
     private String nroTelefono;
     private int nroHabitaciones;
     private int nroBannios;
+    private Urbanizacion urb; 
+    private Cliente cli;
+    private ViviendaEdificio ve;
+    private ViviendaCalle vc;
+    
     
     public Vivienda(String idVivienda, int nroHabitaciones, int nroBannios,
                     String tipoVivienda, String nroTelefono) {
@@ -25,8 +30,27 @@ public class Vivienda {
         this.nroBannios = nroBannios;
         this.tipoVivienda = tipoVivienda;
         this.nroBannios = nroBannios;
-    }
+        this.urb = new Urbanizacion();
+        this.cli = new Cliente();
+        this.ve= new ViviendaEdificio();
+    }   
     
+     public ViviendaEdificio getVe() {
+        return ve;
+    }
+
+    public ViviendaCalle getVc() {
+        return vc;
+    }
+    public Cliente getCli() {
+        return cli;
+    }
+   
+    public Urbanizacion getUrb() {
+        return urb;
+    }
+        
+        
     public Vivienda() {
         super();
     }

@@ -69,7 +69,7 @@ public class ControladorConsultarGFijo implements ActionListener {
         try {
             regUrb = daoUrb.cargarIdUrbanizacion();
             while(regUrb.next()) {
-            idurb = regUrb.getString("idurbanizacion");
+            idurb = regUrb.getString("ID_Urbanizacion");
             formConsulta.getjComboBoxUrb().addItem(idurb);
             }
         }
@@ -113,7 +113,10 @@ public class ControladorConsultarGFijo implements ActionListener {
    
     @Override
     public void actionPerformed(ActionEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        if(e.getSource().equals(formConsulta.getjButtonSalir())) {
+            new ControladorPrincipal();
+            formConsulta.dispose();
+        }
     }
     
 }

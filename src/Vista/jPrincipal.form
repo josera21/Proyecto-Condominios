@@ -4,7 +4,7 @@
   <NonVisualComponents>
     <Menu class="javax.swing.JMenuBar" name="jMenuBar1">
       <SubComponents>
-        <Menu class="javax.swing.JMenu" name="jMenu1">
+        <Menu class="javax.swing.JMenu" name="jMenuPagos">
           <Properties>
             <Property name="text" type="java.lang.String" value="Opciones"/>
           </Properties>
@@ -16,7 +16,7 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItemCasa">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Casa"/>
+                <Property name="text" type="java.lang.String" value="Viviendas"/>
               </Properties>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItemUrb">
@@ -32,6 +32,11 @@
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItemGastoFijo">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Gastos Fijos"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuItemPagos">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Pagos de Propietarios"/>
               </Properties>
             </MenuItem>
           </SubComponents>

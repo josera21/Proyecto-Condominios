@@ -62,7 +62,7 @@ public class DaoGastoExtraordinario extends ClassConexionDAO  {
         sql = sql + "descripcion="+Validaciones.Apost(gastoEx.getDescGasto()) + ",";
         sql = sql + "fecha="+Validaciones.Apost(gastoEx.getFechaGastoEx()) + " ";
         sql = sql + "WHERE idgastoextra="+Validaciones.Apost(gastoEx.getIdGastoEx())+ " ";
-        sql = sql + "AND idurbanizacaion="+Validaciones.Apost(idUrb);
+        sql = sql + "AND idurbanizacion="+Validaciones.Apost(idUrb);
       
         PackageConeccion.ConeccionBD.ejecutar(sql);  
     }

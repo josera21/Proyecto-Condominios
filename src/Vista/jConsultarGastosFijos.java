@@ -6,6 +6,7 @@
 package Vista;
 
 import java.awt.event.ActionListener;
+import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JScrollPane;
 
@@ -143,6 +144,10 @@ public class jConsultarGastosFijos extends javax.swing.JFrame {
     
     public void agregarListener(ActionListener action) {
         this.jButtonSalir.addActionListener(action);
+    }
+    
+    public JButton getjButtonSalir() {
+        return jButtonSalir;
     }
     
     public JScrollPane getjScrollPane() {

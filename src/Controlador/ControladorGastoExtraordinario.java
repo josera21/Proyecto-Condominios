@@ -84,7 +84,7 @@ public class ControladorGastoExtraordinario implements ActionListener, KeyListen
         try {
             regUrb = daoUrb.cargarIdUrbanizacion();
             while(regUrb.next()) {
-            idurb = regUrb.getString("idurbanizacion");
+            idurb = regUrb.getString("ID_Urbanizacion");
             formGastoExtra.getjComboBoxUrb().addItem(idurb);
             }
         }

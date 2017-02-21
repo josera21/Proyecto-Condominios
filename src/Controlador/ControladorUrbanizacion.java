@@ -83,9 +83,9 @@ public class ControladorUrbanizacion implements KeyListener, ActionListener {
             regUrb = daoUrb.buscarUrbanizacion(cadena);
             if(regUrb.next()){
                 if(regUrb.getString("estatus").equalsIgnoreCase("A")){
-                    formUrb.getjTextFieldCodigo().setText(regUrb.getString("idurbanizacion"));
-                    formUrb.getjTextFieldNombre().setText(regUrb.getString("nombre"));
-                    formUrb.getjTextFieldDireccion().setText(regUrb.getString("direccion"));
+                    formUrb.getjTextFieldCodigo().setText(regUrb.getString("ID_Urbanizacion"));
+                    formUrb.getjTextFieldNombre().setText(regUrb.getString("Nombre_Urbanizacion"));
+                    formUrb.getjTextFieldDireccion().setText(regUrb.getString("Direccion_Urbanizacion"));
                     
                     formUrb.getjButtonGuardar().setText("Modificar");
                 }
@@ -99,6 +99,7 @@ public class ControladorUrbanizacion implements KeyListener, ActionListener {
                 Validaciones.Aviso("Urbanizacion no encontrada", "Atencion");
                 formUrb.getjTextFieldNombre().requestFocusInWindow();
                 enabled(true);
+                formUrb.getjButtonGuardar().setText("Guardar");
                 return;
             }
             enabled(false);

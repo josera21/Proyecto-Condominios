@@ -18,7 +18,7 @@ public class DaoCliente extends ClassConexionDAO {
     public void insertar(Cliente cliente){
         
         String sql = "INSERT INTO cliente(cedula, nombre, segnombre, apellido,"
-                + "segapellido, direccion, telefono,fechanac, sexo, email, estatus) VALUES(";
+                + "segapellido, direccion, telefono,fechanac, sexo, email, status) VALUES(";
                 
                 sql = sql + Validaciones.Apost(cliente.getCedula()) + ",";
                 sql = sql + Validaciones.Apost(cliente.getNombre())+ ",";
@@ -76,7 +76,7 @@ public class DaoCliente extends ClassConexionDAO {
         String sql;
         
         sql = "UPDATE cliente SET ";
-        sql = sql + "estatus="+Validaciones.Apost("E")+" ";
+        sql = sql + "status="+Validaciones.Apost("E")+" ";
         sql = sql + "WHERE cedula="+Validaciones.Apost(cliente.getCedula());
         
         PackageConeccion.ConeccionBD.ejecutar(sql);

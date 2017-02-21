@@ -11,26 +11,20 @@ package Modelo;
  */
 public class ViviendaCalle extends Vivienda {
     
-    private String idCasa;
     
+    private Calle calle;
+    public ViviendaCalle()
+    {
+                
+    }
     public ViviendaCalle(String idVivienda, int nroHabitaciones,int nroBannios,
                             String tipoVivienda, String nroTelefono, String idCasa) {
         super(idVivienda, nroHabitaciones, nroBannios, tipoVivienda, nroTelefono);
-        this.idCasa = idCasa;
+        
+        this.calle=new Calle();
     }
 
-    /**
-     * @return the idCasa
-     */
-    public String getIdCasa() {
-        return idCasa;
+    public Calle getCalle() {
+        return calle;
     }
-
-    /**
-     * @param idCasa the idCasa to set
-     */
-    public void setIdCasa(String idCasa) {
-        this.idCasa = idCasa;
-    }
-    
 }

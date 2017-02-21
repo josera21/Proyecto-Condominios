@@ -44,7 +44,7 @@ public class ControladorGastoFijo implements ActionListener {
         try {
             regUrb = daoUrb.cargarIdUrbanizacion();
             while(regUrb.next()) {
-            idurb = regUrb.getString("idurbanizacion");
+            idurb = regUrb.getString("ID_Urbanizacion");
             formGastoFijo.getjComboBoxUrb().addItem(idurb);
             }
         }
@@ -109,15 +109,15 @@ public class ControladorGastoFijo implements ActionListener {
         double monto = 0;
         
         switch(index){
-            case 1: monto = co.calcularGastoLuz();
+            case 0: monto = co.calcularGastoLuz();
             break;
-            case 2: monto = co.calcularGastoAgua();
+            case 1: monto = co.calcularGastoAgua();
             break;
-            case 3: monto = co.calcularGastoVigilancia();
+            case 2: monto = co.calcularGastoVigilancia();
             break;
-            case 4: monto = co.calcularGastoAseo();
+            case 3: monto = co.calcularGastoAseo();
             break;
-            case 5: monto = co.calcularGastoJardineria();
+            case 4: monto = co.calcularGastoJardineria();
             break;
         }
         

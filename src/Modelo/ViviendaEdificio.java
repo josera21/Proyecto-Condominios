@@ -10,32 +10,26 @@ package Modelo;
  * @author JoseR
  */
 public class ViviendaEdificio extends Vivienda {
-    
-    private String idApto;
+   
     private int piso;
+    private Edificio edificio;
     
+    public ViviendaEdificio()
+    {
+        
+    }
     public ViviendaEdificio(String idVivienda, int nroHabitaciones,int nroBannios,
-                            String tipoVivienda, String nroTelefono,String idApto, 
-                            int piso) {
+                            String tipoVivienda, String nroTelefono, int piso) {
         super(idVivienda, nroHabitaciones, nroBannios, tipoVivienda, nroTelefono);
-        this.idApto = idApto;
         this.piso = piso;
+        this.edificio = new Edificio();
     }
-
-    /**
-     * @return the idApto
-     */
-    public String getIdApto() {
-        return idApto;
+    
+    public Edificio getEdificio() {
+        return edificio;
     }
-
-    /**
-     * @param idApto the idApto to set
-     */
-    public void setIdApto(String idApto) {
-        this.idApto = idApto;
-    }
-
+    
+   
     /**
      * @return the piso
      */

@@ -68,7 +68,7 @@ public class ControladorConsultarGExtra implements ActionListener {
         try {
             regUrb = daoUrb.cargarIdUrbanizacion();
             while(regUrb.next()) {
-            idurb = regUrb.getString("idurbanizacion");
+            idurb = regUrb.getString("ID_Urbanizacion");
             formConsulta.getjComboBoxUrb().addItem(idurb);
             }
         }

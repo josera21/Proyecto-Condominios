@@ -35,7 +35,7 @@ public class ControladorPrincipal implements ActionListener {
         }
         
         if(e.getSource().equals(formPrincipal.getjMenuItemCasa())){
-            new ControladorCasa();
+            new ControladorRegistrarVivienda();
             formPrincipal.dispose();
         }
         
@@ -78,6 +78,15 @@ public class ControladorPrincipal implements ActionListener {
         if(e.getSource().equals(formPrincipal.getjMenuItemReporteGastoFijo())){
             try {
                 new ControladorConsultarGFijo();
+                formPrincipal.dispose();
+            } catch (SQLException ex) {
+                Logger.getLogger(ControladorPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
+        if(e.getSource().equals(formPrincipal.getjMenuItemPagos())){
+            try {
+                new ControladorPagos();
                 formPrincipal.dispose();
             } catch (SQLException ex) {
                 Logger.getLogger(ControladorPrincipal.class.getName()).log(Level.SEVERE, null, ex);

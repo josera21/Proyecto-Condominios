@@ -58,7 +58,7 @@ public class DaoGastoFijo {
     public ResultSet gastoFijoPorUrb(String idUrb) throws SQLException {
        ResultSet registro;
         
-        String sql = "SELECT * FROM gastoid WHERE idurbanizacion="+Validaciones.Apost(idUrb);
+        String sql = "SELECT * FROM gastofijo WHERE idurbanizacion="+Validaciones.Apost(idUrb);
                sql = sql + " AND estatus='A'";
         
         registro = PackageConeccion.ConeccionBD.consultar(sql);

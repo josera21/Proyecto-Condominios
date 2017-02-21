@@ -31,36 +31,40 @@ public class jPrincipal extends javax.swing.JFrame {
     private void initComponents() {
 
         jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
+        jMenuPagos = new javax.swing.JMenu();
         jMenuItemCliente = new javax.swing.JMenuItem();
         jMenuItemCasa = new javax.swing.JMenuItem();
         jMenuItemUrb = new javax.swing.JMenuItem();
         jMenuItemGastosExtra = new javax.swing.JMenuItem();
         jMenuItemGastoFijo = new javax.swing.JMenuItem();
+        jMenuItemPagos = new javax.swing.JMenuItem();
         jMenuReportes = new javax.swing.JMenu();
         jMenuItemReporteGastoExtra = new javax.swing.JMenuItem();
         jMenuItemReporteGastoFijo = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jMenu1.setText("Opciones");
+        jMenuPagos.setText("Opciones");
 
         jMenuItemCliente.setText("Cliente");
-        jMenu1.add(jMenuItemCliente);
+        jMenuPagos.add(jMenuItemCliente);
 
-        jMenuItemCasa.setText("Casa");
-        jMenu1.add(jMenuItemCasa);
+        jMenuItemCasa.setText("Viviendas");
+        jMenuPagos.add(jMenuItemCasa);
 
         jMenuItemUrb.setText("Urbanizacion");
-        jMenu1.add(jMenuItemUrb);
+        jMenuPagos.add(jMenuItemUrb);
 
         jMenuItemGastosExtra.setText("Gastos Extra");
-        jMenu1.add(jMenuItemGastosExtra);
+        jMenuPagos.add(jMenuItemGastosExtra);
 
         jMenuItemGastoFijo.setText("Gastos Fijos");
-        jMenu1.add(jMenuItemGastoFijo);
+        jMenuPagos.add(jMenuItemGastoFijo);
 
-        jMenuBar1.add(jMenu1);
+        jMenuItemPagos.setText("Pagos de Propietarios");
+        jMenuPagos.add(jMenuItemPagos);
+
+        jMenuBar1.add(jMenuPagos);
 
         jMenuReportes.setText("Reportes");
 
@@ -120,6 +124,10 @@ public class jPrincipal extends javax.swing.JFrame {
         return jMenuItemReporteGastoExtra;
     }
     
+    public JMenuItem getjMenuItemPagos() {
+        return jMenuItemPagos;
+    }
+    
     public void agregarListener(ActionListener action){
         this.jMenuItemCliente.addActionListener(action);
         this.jMenuItemCasa.addActionListener(action);
@@ -128,18 +136,20 @@ public class jPrincipal extends javax.swing.JFrame {
         this.jMenuItemReporteGastoExtra.addActionListener(action);
         this.jMenuItemGastoFijo.addActionListener(action);
         this.jMenuItemReporteGastoFijo.addActionListener(action);
+        this.jMenuItemPagos.addActionListener(action);
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItemCasa;
     private javax.swing.JMenuItem jMenuItemCliente;
     private javax.swing.JMenuItem jMenuItemGastoFijo;
     private javax.swing.JMenuItem jMenuItemGastosExtra;
+    private javax.swing.JMenuItem jMenuItemPagos;
     private javax.swing.JMenuItem jMenuItemReporteGastoExtra;
     private javax.swing.JMenuItem jMenuItemReporteGastoFijo;
     private javax.swing.JMenuItem jMenuItemUrb;
+    private javax.swing.JMenu jMenuPagos;
     private javax.swing.JMenu jMenuReportes;
     // End of variables declaration//GEN-END:variables
 }
