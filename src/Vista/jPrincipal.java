@@ -30,6 +30,7 @@ public class jPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel1 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenuPagos = new javax.swing.JMenu();
         jMenuItemCliente = new javax.swing.JMenuItem();
@@ -44,18 +45,22 @@ public class jPrincipal extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jMenuPagos.setText("Opciones");
+        jLabel1.setFont(new java.awt.Font("Oxygen", 1, 36)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 153, 255));
+        jLabel1.setText("Bienvenido");
 
-        jMenuItemCliente.setText("Cliente");
+        jMenuPagos.setText("Administracion");
+
+        jMenuItemCliente.setText("Clientes");
         jMenuPagos.add(jMenuItemCliente);
 
         jMenuItemCasa.setText("Viviendas");
         jMenuPagos.add(jMenuItemCasa);
 
-        jMenuItemUrb.setText("Urbanizacion");
+        jMenuItemUrb.setText("Urbanizaciones");
         jMenuPagos.add(jMenuItemUrb);
 
-        jMenuItemGastosExtra.setText("Gastos Extra");
+        jMenuItemGastosExtra.setText("Gastos Extras");
         jMenuPagos.add(jMenuItemGastosExtra);
 
         jMenuItemGastoFijo.setText("Gastos Fijos");
@@ -82,11 +87,17 @@ public class jPrincipal extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 442, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(119, 119, 119)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(122, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 315, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(112, 112, 112)
+                .addComponent(jLabel1)
+                .addContainerGap(157, Short.MAX_VALUE))
         );
 
         pack();
@@ -140,6 +151,7 @@ public class jPrincipal extends javax.swing.JFrame {
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItemCasa;
     private javax.swing.JMenuItem jMenuItemCliente;

@@ -91,7 +91,7 @@ public class ControladorCliente implements ActionListener, KeyListener {
             
             @Override
             public void keyTyped(KeyEvent e){
-                Validaciones.ValidarSoloNumeros(e, formCliente.getjFormattedTextFieldTelefono()
+                Validaciones.ValidarSoloNumerosConMasLongitud(e, formCliente.getjFormattedTextFieldTelefono()
                 .getText());
             }
         });

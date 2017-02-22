@@ -146,19 +146,19 @@ public class jVivienda extends javax.swing.JFrame {
         jButtonGuardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Guardar-48.png"))); // NOI18N
         jButtonGuardar.setText("Guardar");
         jPanel1.add(jButtonGuardar);
-        jButtonGuardar.setBounds(10, 380, 120, 40);
+        jButtonGuardar.setBounds(10, 380, 160, 40);
 
         jButtonEliminar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jButtonEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Eliminar-48.png"))); // NOI18N
         jButtonEliminar.setText("Eliminar");
         jPanel1.add(jButtonEliminar);
-        jButtonEliminar.setBounds(180, 380, 112, 40);
+        jButtonEliminar.setBounds(190, 380, 170, 40);
 
         jButtonCancelar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jButtonCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Escoba-48.png"))); // NOI18N
         jButtonCancelar.setText("Cancelar");
         jPanel1.add(jButtonCancelar);
-        jButtonCancelar.setBounds(320, 380, 117, 40);
+        jButtonCancelar.setBounds(370, 380, 150, 40);
 
         jButtonSalir.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jButtonSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Volver-48.png"))); // NOI18N
@@ -169,7 +169,7 @@ public class jVivienda extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jButtonSalir);
-        jButtonSalir.setBounds(470, 380, 87, 40);
+        jButtonSalir.setBounds(540, 380, 170, 40);
 
         jTextfieldIDPropietario.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jTextfieldIDPropietario.setEnabled(false);
@@ -323,13 +323,11 @@ public class jVivienda extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 989, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 989, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 445, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 509, Short.MAX_VALUE)
         );
 
         jPanel1.getAccessibleContext().setAccessibleDescription("");

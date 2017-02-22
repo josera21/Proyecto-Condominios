@@ -149,6 +149,20 @@ public static void ValidarSoloNumeros(KeyEvent e, String cadena){
     
 }
 
+public static void ValidarSoloNumerosConMasLongitud(KeyEvent e, String cadena){
+    
+    char digito;
+    
+    if(cadena.length() == 20){
+        e.consume();
+    }
+    
+    digito = e.getKeyChar();
+    if(digito <'0' || digito > '9')
+        e.consume();
+    
+}
+
 public static void ValidarSoloLetras(KeyEvent e){
     
     char c = e.getKeyChar();

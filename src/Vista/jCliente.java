@@ -95,7 +95,6 @@ public class jCliente extends javax.swing.JFrame {
         jButtonSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Volver-48.png"))); // NOI18N
         jButtonSalir.setText("Salir");
 
-        jLabel8.setForeground(new java.awt.Color(255, 0, 0));
         jLabel8.setText("*Presione Enter cuando coloque la cedula");
 
         jLabel9.setText("Segundo Nombre");
