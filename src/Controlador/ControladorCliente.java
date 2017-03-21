@@ -9,6 +9,8 @@ import DAO.DaoCliente;
 import Librerias.Validaciones;
 import Modelo.Cliente;
 import Modelo.Listas;
+import PatronMemento.MementoCliente;
+import PatronMemento.SaveCliente;
 import Vista.jCliente;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -27,6 +29,7 @@ import java.util.logging.Logger;
 public class ControladorCliente implements ActionListener, KeyListener {
     
     private jCliente formCliente;
+    private SaveCliente saveC = new SaveCliente();
     
     public ControladorCliente(){
         formCliente = new jCliente();
@@ -123,7 +126,7 @@ public class ControladorCliente implements ActionListener, KeyListener {
             regCliente = daoCliente.buscarCliente(cadena);
             if(regCliente.next()){
                 if(regCliente.getString("status").equalsIgnoreCase("A")){
-                    formCliente.getjTextFieldCedula().setText(regCliente.getString("cedula"));
+                    formCliente.getjTextFieldCedula().setText(regCliente.getString("cedula").trim());
                     formCliente.getjTextFieldNombre().setText(regCliente.getString("nombre"));
                     formCliente.getjTextFieldSegNombre().setText(regCliente.getString("segNombre"));
                     formCliente.getjTextFieldApellido().setText(regCliente.getString("apellido"));
@@ -216,6 +219,7 @@ public class ControladorCliente implements ActionListener, KeyListener {
         if(!regCliente.next()){
             daoCliente.insertar(cliente);
             Validaciones.Aviso("Registro del Cliente exitoso!", "Gestion de Registro");
+            memento();
             cancelar();
         }
         else {
@@ -270,6 +274,27 @@ public class ControladorCliente implements ActionListener, KeyListener {
         formCliente.getjButtonGuardar().setText("Guardar");
     }
     
+    private void memento() {
+        Cliente cliente = new Cliente();
+        String cadena = formCliente.getjTextFieldCedula().getText().trim();
+        
+        if(cadena.length() > 0) {
+            cliente.setCedula(cadena);
+            saveC.addMemento(cliente.saveToMemento());
+        }
+    }
+    
+    private void revertirMemento() {
+        if(saveC.vacio()) {
+            Validaciones.Aviso("No hay datos para Recuperar", "Gestion de Restauracion");
+            return;
+        }
+        
+        MementoCliente memento = saveC.getMemento();
+        formCliente.getjTextFieldCedula().setText(memento.getSavedState().trim());
+        formCliente.getjTextFieldCedula().requestFocusInWindow();
+    }
+    
     @Override
     public void actionPerformed(ActionEvent e) {
         
@@ -291,6 +316,10 @@ public class ControladorCliente implements ActionListener, KeyListener {
             } catch (SQLException ex) {
                 Logger.getLogger(ControladorCliente.class.getName()).log(Level.SEVERE, null, ex);
             }
+        }
+        
+        if(e.getSource().equals(formCliente.getjButtonRevertir())) {
+            revertirMemento();
         }
         
         if(e.getSource().equals(formCliente.getjButtonSalir())){

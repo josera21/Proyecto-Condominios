@@ -112,7 +112,7 @@ public class ControladorConsultarGExtra implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         
         if(e.getSource().equals(formConsulta.getjButtonSalir())){
-            new ControladorPrincipal();
+            new ControladorMenuGastos();
             formConsulta.dispose();
         }       
     }

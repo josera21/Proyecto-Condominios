@@ -5,6 +5,8 @@
  */
 package Modelo;
 
+import PatronMemento.MementoCliente;
+
 /**
  *
  * @author joser
@@ -36,5 +38,13 @@ public class Cliente extends Persona {
     
     public String getEmail() {
         return this.email;
+    }
+    
+    public MementoCliente saveToMemento() {
+        return new MementoCliente(cedula);
+    }
+    
+    public void restoreFromMemento(MementoCliente meme) {
+        cedula = meme.getSavedState();
     }
 }

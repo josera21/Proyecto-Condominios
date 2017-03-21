@@ -42,6 +42,7 @@ public class jPrincipal extends javax.swing.JFrame {
         jMenuReportes = new javax.swing.JMenu();
         jMenuItemReporteGastoExtra = new javax.swing.JMenuItem();
         jMenuItemReporteGastoFijo = new javax.swing.JMenuItem();
+        jMenuItemGastos = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -78,6 +79,9 @@ public class jPrincipal extends javax.swing.JFrame {
 
         jMenuItemReporteGastoFijo.setText("Gastos Fijos");
         jMenuReportes.add(jMenuItemReporteGastoFijo);
+
+        jMenuItemGastos.setText("Gastos");
+        jMenuReportes.add(jMenuItemGastos);
 
         jMenuBar1.add(jMenuReportes);
 
@@ -139,6 +143,10 @@ public class jPrincipal extends javax.swing.JFrame {
         return jMenuItemPagos;
     }
     
+    public JMenuItem getjMenuReportes() {
+        return jMenuItemGastos;
+    }
+    
     public void agregarListener(ActionListener action){
         this.jMenuItemCliente.addActionListener(action);
         this.jMenuItemCasa.addActionListener(action);
@@ -148,6 +156,8 @@ public class jPrincipal extends javax.swing.JFrame {
         this.jMenuItemGastoFijo.addActionListener(action);
         this.jMenuItemReporteGastoFijo.addActionListener(action);
         this.jMenuItemPagos.addActionListener(action);
+        this.jMenuReportes.addActionListener(action);
+        this.jMenuItemGastos.addActionListener(action);
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -156,6 +166,7 @@ public class jPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItemCasa;
     private javax.swing.JMenuItem jMenuItemCliente;
     private javax.swing.JMenuItem jMenuItemGastoFijo;
+    private javax.swing.JMenuItem jMenuItemGastos;
     private javax.swing.JMenuItem jMenuItemGastosExtra;
     private javax.swing.JMenuItem jMenuItemPagos;
     private javax.swing.JMenuItem jMenuItemReporteGastoExtra;

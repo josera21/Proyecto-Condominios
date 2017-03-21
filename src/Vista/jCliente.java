@@ -59,6 +59,7 @@ public class jCliente extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
         jTextFieldEmail = new javax.swing.JTextField();
         jButtonEliminar = new javax.swing.JButton();
+        jButtonRevertir = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -105,6 +106,9 @@ public class jCliente extends javax.swing.JFrame {
 
         jButtonEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Eliminar-48.png"))); // NOI18N
         jButtonEliminar.setText("Eliminar");
+
+        jButtonRevertir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Rollback-48.png"))); // NOI18N
+        jButtonRevertir.setText("Revertir");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -169,8 +173,10 @@ public class jCliente extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jButtonEliminar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButtonRevertir)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jButtonSalir)))
-                .addContainerGap(45, Short.MAX_VALUE))
+                .addContainerGap(40, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -217,7 +223,8 @@ public class jCliente extends javax.swing.JFrame {
                     .addComponent(jButtonGuardar)
                     .addComponent(jButtonCancelar)
                     .addComponent(jButtonEliminar)
-                    .addComponent(jButtonSalir))
+                    .addComponent(jButtonSalir)
+                    .addComponent(jButtonRevertir))
                 .addContainerGap())
         );
 
@@ -305,6 +312,10 @@ public class jCliente extends javax.swing.JFrame {
         return jButtonSalir;
     }
     
+    public JButton getjButtonRevertir() {
+        return jButtonRevertir;
+    }
+    
     // Declaracion de los Listener
     // Los listener activaran los eventos que ocurran en el menu
     
@@ -312,6 +323,7 @@ public class jCliente extends javax.swing.JFrame {
         this.jButtonGuardar.addActionListener(action);
         this.jButtonCancelar.addActionListener(action);
         this.jButtonEliminar.addActionListener(action);
+        this.jButtonRevertir.addActionListener(action);
         this.jButtonSalir.addActionListener(action);
     }
     
@@ -320,6 +332,7 @@ public class jCliente extends javax.swing.JFrame {
     private javax.swing.JButton jButtonCancelar;
     private javax.swing.JButton jButtonEliminar;
     private javax.swing.JButton jButtonGuardar;
+    private javax.swing.JButton jButtonRevertir;
     private javax.swing.JButton jButtonSalir;
     private javax.swing.JComboBox<String> jComboBoxSexo;
     private javax.swing.JFormattedTextField jFormattedTextFieldFecha;
