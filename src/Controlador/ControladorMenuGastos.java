@@ -44,6 +44,7 @@ public class ControladorMenuGastos implements ActionListener, KeyListener {
         if(e.getSource().equals(jFacade.getjButtonConsulGE())) {
             try {
                 fReport.showConsultarGExtra();
+                jFacade.dispose();
             } catch(SQLException ex) {
                 Logger.getLogger(ControladorMenuGastos.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -52,6 +53,7 @@ public class ControladorMenuGastos implements ActionListener, KeyListener {
         if(e.getSource().equals(jFacade.getjButtonConsulGF())) {
             try {
                 fReport.showConsultarGFijo();
+                jFacade.dispose();
             } catch(SQLException ex) {
                 Logger.getLogger(ControladorMenuGastos.class.getName()).log(Level.SEVERE, null, ex);
             }

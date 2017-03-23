@@ -31,7 +31,8 @@ public class ControladorGastoFijo implements ActionListener {
         formGastoFijo = new jGastoFijo();
         formGastoFijo.agregarListener(this);
         formGastoFijo.setVisible(true);
-        
+        formGastoFijo.setResizable(false);
+        formGastoFijo.setLocationRelativeTo(null);
         cargarUrbanizacion();
     }
 

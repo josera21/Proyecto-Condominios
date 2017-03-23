@@ -35,6 +35,8 @@ public class ControladorCliente implements ActionListener, KeyListener {
         formCliente = new jCliente();
         formCliente.agregarListener(this);
         formCliente.setVisible(true);
+        formCliente.setResizable(false);
+        formCliente.setLocationRelativeTo(null);
         
         enabled(false);
         

@@ -33,6 +33,8 @@ public class ControladorConsultarGFijo implements ActionListener {
         formConsulta = new jConsultarGastosFijos();
         formConsulta.agregarListener(this);
         formConsulta.setVisible(true);
+        formConsulta.setResizable(false);
+        formConsulta.setLocationRelativeTo(null);
         cargarIdUrbanizacion();
         
         modelo = new DefaultTableModel() {

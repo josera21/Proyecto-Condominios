@@ -31,7 +31,8 @@ public class ControladorUrbanizacion implements KeyListener, ActionListener {
         formUrb = new jUrbanizacion();
         formUrb.agregarListener(this);
         formUrb.setVisible(true);
-        
+        formUrb.setResizable(false);
+        formUrb.setLocationRelativeTo(null);
         enabled(false);
         
         formUrb.getjTextFieldCodigo().addKeyListener(new KeyAdapter() {

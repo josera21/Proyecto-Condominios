@@ -37,6 +37,8 @@ public class ControladorRegistrarVivienda implements ActionListener, KeyListener
         formCasa = new jVivienda();
         formCasa.agregarListener(this);
         formCasa.setVisible(true);
+        formCasa.setResizable(false);
+        formCasa.setLocationRelativeTo(null);
         formCasa.agregarListener(this);
         LlenarComboBuscar();
         enabled(false);

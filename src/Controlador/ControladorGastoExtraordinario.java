@@ -35,6 +35,8 @@ public class ControladorGastoExtraordinario implements ActionListener, KeyListen
         formGastoExtra = new jGastoExtraordinario();
         formGastoExtra.agregarListener(this);
         formGastoExtra.setVisible(true);
+        formGastoExtra.setResizable(false);
+        formGastoExtra.setLocationRelativeTo(null);
         formGastoExtra.getjTextFieldCodigo().setEditable(false);
         enabled(false);
         cargarUrbanizacion();

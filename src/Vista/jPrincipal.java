@@ -40,8 +40,6 @@ public class jPrincipal extends javax.swing.JFrame {
         jMenuItemGastoFijo = new javax.swing.JMenuItem();
         jMenuItemPagos = new javax.swing.JMenuItem();
         jMenuReportes = new javax.swing.JMenu();
-        jMenuItemReporteGastoExtra = new javax.swing.JMenuItem();
-        jMenuItemReporteGastoFijo = new javax.swing.JMenuItem();
         jMenuItemGastos = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -73,12 +71,6 @@ public class jPrincipal extends javax.swing.JFrame {
         jMenuBar1.add(jMenuPagos);
 
         jMenuReportes.setText("Reportes");
-
-        jMenuItemReporteGastoExtra.setText("Gastos Extras");
-        jMenuReportes.add(jMenuItemReporteGastoExtra);
-
-        jMenuItemReporteGastoFijo.setText("Gastos Fijos");
-        jMenuReportes.add(jMenuItemReporteGastoFijo);
 
         jMenuItemGastos.setText("Gastos");
         jMenuReportes.add(jMenuItemGastos);
@@ -131,14 +123,6 @@ public class jPrincipal extends javax.swing.JFrame {
         return jMenuItemGastoFijo;
     }
     
-    public JMenuItem getjMenuItemReporteGastoFijo() {
-        return jMenuItemReporteGastoFijo;
-    }
-    
-    public JMenuItem getjMenuItemReporteGastoEx() {
-        return jMenuItemReporteGastoExtra;
-    }
-    
     public JMenuItem getjMenuItemPagos() {
         return jMenuItemPagos;
     }
@@ -152,9 +136,7 @@ public class jPrincipal extends javax.swing.JFrame {
         this.jMenuItemCasa.addActionListener(action);
         this.jMenuItemUrb.addActionListener(action);
         this.jMenuItemGastosExtra.addActionListener(action);
-        this.jMenuItemReporteGastoExtra.addActionListener(action);
         this.jMenuItemGastoFijo.addActionListener(action);
-        this.jMenuItemReporteGastoFijo.addActionListener(action);
         this.jMenuItemPagos.addActionListener(action);
         this.jMenuReportes.addActionListener(action);
         this.jMenuItemGastos.addActionListener(action);
@@ -169,8 +151,6 @@ public class jPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItemGastos;
     private javax.swing.JMenuItem jMenuItemGastosExtra;
     private javax.swing.JMenuItem jMenuItemPagos;
-    private javax.swing.JMenuItem jMenuItemReporteGastoExtra;
-    private javax.swing.JMenuItem jMenuItemReporteGastoFijo;
     private javax.swing.JMenuItem jMenuItemUrb;
     private javax.swing.JMenu jMenuPagos;
     private javax.swing.JMenu jMenuReportes;

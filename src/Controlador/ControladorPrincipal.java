@@ -25,6 +25,8 @@ public class ControladorPrincipal implements ActionListener {
         formPrincipal=new jPrincipal();
         formPrincipal.agregarListener(this);
         formPrincipal.setVisible(true);
+        formPrincipal.setResizable(false);
+        formPrincipal.setLocationRelativeTo(null);
     }
     
     @Override
@@ -52,7 +54,16 @@ public class ControladorPrincipal implements ActionListener {
             } catch (SQLException ex) {
                 Logger.getLogger(ControladorPrincipal.class.getName()).log(Level.SEVERE, null, ex);
             }
+        }
+        
+        if(e.getSource().equals(formPrincipal.getjMenuItemGastoFijo())){
             
+            try {
+                new ControladorGastoFijo();
+                formPrincipal.dispose();
+            } catch (SQLException ex) {
+                Logger.getLogger(ControladorPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
         
        if(e.getSource().equals(formPrincipal.getjMenuReportes())) {
@@ -60,14 +71,6 @@ public class ControladorPrincipal implements ActionListener {
            formPrincipal.dispose();
        }
         
-        if(e.getSource().equals(formPrincipal.getjMenuItemReporteGastoFijo())){
-            try {
-                new ControladorConsultarGFijo();
-                formPrincipal.dispose();
-            } catch (SQLException ex) {
-                Logger.getLogger(ControladorPrincipal.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
         
         if(e.getSource().equals(formPrincipal.getjMenuItemPagos())){
             try {

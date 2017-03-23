@@ -35,6 +35,8 @@ public class ControladorConsultarGExtra implements ActionListener {
         formConsulta = new jConsultarGastosExtras();
         formConsulta.agregarListener(this);
         formConsulta.setVisible(true);
+        formConsulta.setResizable(false);
+        formConsulta.setLocationRelativeTo(null);
         cargarIdUrbanizacion();
         
         modelo = new DefaultTableModel() {

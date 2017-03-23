@@ -41,6 +41,8 @@ public class ControladorPagos implements ActionListener, KeyListener {
         formPago = new jPagos();
         formPago.agregarListener(this);
         formPago.setVisible(true);
+        formPago.setResizable(false);
+        formPago.setLocationRelativeTo(null);
         cargarFormaPago();
         
         formPago.getjTextFieldCedula().addKeyListener(new KeyAdapter() {
