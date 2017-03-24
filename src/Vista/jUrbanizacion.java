@@ -43,6 +43,7 @@ public class jUrbanizacion extends javax.swing.JFrame {
         jButtonCancelar = new javax.swing.JButton();
         jButtonSalir = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
+        jButtonCopiar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -68,6 +69,9 @@ public class jUrbanizacion extends javax.swing.JFrame {
 
         jLabel4.setText("*Presione Enter cuando coloque el codigo");
 
+        jButtonCopiar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Copiar-48.png"))); // NOI18N
+        jButtonCopiar.setText("Copiar");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -76,28 +80,33 @@ public class jUrbanizacion extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(18, 18, 18)
-                        .addComponent(jTextFieldCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel4))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jTextFieldNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextFieldDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel1)
+                                .addGap(18, 18, 18)
+                                .addComponent(jTextFieldCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel4))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel2)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jTextFieldNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel3)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jTextFieldDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jButtonGuardar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButtonEliminar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButtonCopiar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButtonCancelar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButtonSalir)))
-                .addContainerGap(18, Short.MAX_VALUE))
+                        .addComponent(jButtonSalir)
+                        .addGap(20, 20, 20))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -120,7 +129,8 @@ public class jUrbanizacion extends javax.swing.JFrame {
                     .addComponent(jButtonGuardar)
                     .addComponent(jButtonEliminar)
                     .addComponent(jButtonCancelar)
-                    .addComponent(jButtonSalir))
+                    .addComponent(jButtonSalir)
+                    .addComponent(jButtonCopiar))
                 .addGap(56, 56, 56))
         );
 
@@ -199,6 +209,10 @@ public class jUrbanizacion extends javax.swing.JFrame {
         return jButtonEliminar;
     }
     
+    public JButton getjButtonCopiar() {
+        return jButtonCopiar;
+    }
+    
     public JButton getjButtonCancelar() {
         return jButtonCancelar;
     }
@@ -210,6 +224,7 @@ public class jUrbanizacion extends javax.swing.JFrame {
     public void agregarListener(ActionListener action) {
         this.jButtonGuardar.addActionListener(action);
         this.jButtonEliminar.addActionListener(action);
+        this.jButtonCopiar.addActionListener(action);
         this.jButtonCancelar.addActionListener(action);
         this.jButtonSalir.addActionListener(action);
     }
@@ -217,6 +232,7 @@ public class jUrbanizacion extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonCancelar;
+    private javax.swing.JButton jButtonCopiar;
     private javax.swing.JButton jButtonEliminar;
     private javax.swing.JButton jButtonGuardar;
     private javax.swing.JButton jButtonSalir;

@@ -315,7 +315,7 @@ public class ControladorRegistrarVivienda implements ActionListener, KeyListener
                                                 formCasa.getjComboBoxTipo().getSelectedItem().toString().trim(),
                                                 formCasa.getjTextFieldTelefono().getText().trim(),
                                                 formCasa.getjComboBoxCalle().getSelectedItem().toString().trim());
-                vc.getUrb().setIdUrbanizacion(formCasa.getjComboBoxUrbanizacion().getSelectedItem().toString().trim());
+                vc.getUrb().setId(formCasa.getjComboBoxUrbanizacion().getSelectedItem().toString().trim());
                 vc.getCli().setCedula(formCasa.getjTextfieldIDPropietario().getText().trim());
                 dv.insertarVivienda(vc);
                 dv.insertarViviendaCalle(vc);
@@ -337,7 +337,7 @@ public class ControladorRegistrarVivienda implements ActionListener, KeyListener
                                                      formCasa.getjTextFieldTelefono().getText(),
                                                      Integer.parseInt(formCasa.getjComboBoxPiso().getSelectedItem().toString().trim()));
                 ve.getCli().setCedula(formCasa.getjTextfieldIDPropietario().getText().trim());
-                ve.getUrb().setIdUrbanizacion(formCasa.getjComboBoxUrbanizacion().getSelectedItem().toString().trim());
+                ve.getUrb().setId(formCasa.getjComboBoxUrbanizacion().getSelectedItem().toString().trim());
                 dv.insertarVivienda(ve);
                 dv.insertarVivienda(ve);
                 JOptionPane.showMessageDialog(formCasa, "REGISTRO EXITOSO!!!","Registro de Vivienda",JOptionPane.INFORMATION_MESSAGE);

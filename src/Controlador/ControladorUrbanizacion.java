@@ -8,6 +8,7 @@ package Controlador;
 import DAO.DaoUrbanizacion;
 import Librerias.Validaciones;
 import Modelo.Urbanizacion;
+import PatronPrototype.Prototype;
 import Vista.jUrbanizacion;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -26,6 +27,7 @@ import java.util.logging.Logger;
 public class ControladorUrbanizacion implements KeyListener, ActionListener {
     
     private jUrbanizacion formUrb;
+    private Prototype prototipo;
     
     public ControladorUrbanizacion() {
         formUrb = new jUrbanizacion();
@@ -88,7 +90,7 @@ public class ControladorUrbanizacion implements KeyListener, ActionListener {
                     formUrb.getjTextFieldNombre().setText(regUrb.getString("Nombre_Urbanizacion"));
                     formUrb.getjTextFieldDireccion().setText(regUrb.getString("Direccion_Urbanizacion"));
                     
-                    formUrb.getjButtonGuardar().setText("Modificar");
+                    formUrb.getjButtonGuardar().setText("Modificar");    
                 }
                 else {
                     Validaciones.Aviso("La urbanizacion que intentas buscar se "
@@ -104,11 +106,10 @@ public class ControladorUrbanizacion implements KeyListener, ActionListener {
                 return;
             }
             enabled(false);
-        }
-        
+        }   
     }
     
-    private void guardar() throws SQLException {
+    private void guardar() throws SQLException, CloneNotSupportedException {
         Urbanizacion urb;
         DaoUrbanizacion daoUrb = new DaoUrbanizacion();
         ResultSet regUrb;
@@ -131,11 +132,14 @@ public class ControladorUrbanizacion implements KeyListener, ActionListener {
         urb = new Urbanizacion(formUrb.getjTextFieldCodigo().getText(),
                                formUrb.getjTextFieldNombre().getText(),
                                formUrb.getjTextFieldDireccion().getText());
+        // Aqui clonamos el Objeto urbanizacion recien creado. 
+        prototipo = urb.clone();
         
         regUrb =  daoUrb.buscarUrbanizacion(cadena);
         if(!regUrb.next()){
             daoUrb.insertar(urb);
             Validaciones.Aviso("Registro de la Urbanizacion exitosa!", "Gestion de Registro");
+            cancelar();
         }
         else {
             daoUrb.modificarUrbanizacion(urb);
@@ -163,6 +167,16 @@ public class ControladorUrbanizacion implements KeyListener, ActionListener {
             }   
             
         }
+    }
+    
+    private void copiar() {
+        Validaciones.Aviso("Urbanizacion Copiada", "Gestion de Registro");
+        formUrb.getjTextFieldCodigo().setText(prototipo.getId());
+        formUrb.getjTextFieldNombre().setText(prototipo.getNombre());
+        formUrb.getjTextFieldDireccion().setText(prototipo.getDireccion());
+        formUrb.getjTextFieldCodigo().setEditable(true);
+        formUrb.getjTextFieldDireccion().setEditable(true);
+        formUrb.getjTextFieldNombre().setEditable(true);
     }
     
     private void cancelar(){
@@ -195,7 +209,7 @@ public class ControladorUrbanizacion implements KeyListener, ActionListener {
         if(e.getSource().equals(formUrb.getjButtonGuardar())){
             try {
                 guardar();
-            }catch(SQLException ex){
+            }catch(SQLException | CloneNotSupportedException ex){
                 Logger.getLogger(ControladorUrbanizacion.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
@@ -208,6 +222,10 @@ public class ControladorUrbanizacion implements KeyListener, ActionListener {
             }
         }
         
+        if(e.getSource().equals(formUrb.getjButtonCopiar())) {
+            copiar();
+        }
+        
         if(e.getSource().equals(formUrb.getjButtonCancelar())){
             cancelar();
         }
@@ -216,7 +234,5 @@ public class ControladorUrbanizacion implements KeyListener, ActionListener {
             new ControladorPrincipal();
             formUrb.dispose();
         }
-        
     }
-    
 }

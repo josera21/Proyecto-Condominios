@@ -24,7 +24,7 @@ public class DaoVivienda extends ClassConexionDAO {
      public void insertarVivienda(Vivienda vivienda) throws SQLException {
         PackageConeccion.ConeccionBD.getConeccion();
         String sql="INSERT INTO \"TVivienda\"\n" +
-                   "VALUES ('"+vivienda.getIdVivienda()+"', '"+vivienda.getUrb().getIdUrbanizacion()+"', '"+vivienda.getCli().getCedula()+
+                   "VALUES ('"+vivienda.getIdVivienda()+"', '"+vivienda.getUrb().getId()+"', '"+vivienda.getCli().getCedula()+
                             "',"+vivienda.getNroHabitaciones()+","+ vivienda.getNroBannios()+",'"+vivienda.getTipoVivienda()+"', '"
                             + vivienda.getNroTelefono()+"','A')";
         PackageConeccion.ConeccionBD.ejecutar(sql);

@@ -19,7 +19,7 @@ public class DaoUrbanizacion extends ClassConexionDAO {
         
         String sql = "INSERT INTO \"TUrbanizacion\"(\"ID_Urbanizacion\", \"Nombre_Urbanizacion\", \"Direccion_Urbanizacion\", estatus) VALUES(";
                 
-                sql = sql + Validaciones.Apost(urb.getIdUrbanizacion()) + ",";
+                sql = sql + Validaciones.Apost(urb.getId()) + ",";
                 sql = sql + Validaciones.Apost(urb.getNombre())+ ",";
                 sql = sql + Validaciones.Apost(urb.getDireccion())+ ",";
                 sql = sql + Validaciones.Apost("A") + ")";
@@ -50,7 +50,7 @@ public class DaoUrbanizacion extends ClassConexionDAO {
         sql = "UPDATE \"TUrbanizacion\" SET ";
         sql = sql + "\"Nombre_Urbanizacion\"="+Validaciones.Apost(urb.getNombre())+",";
         sql = sql + "\"Direccion_Urbanizacion\"="+Validaciones.Apost(urb.getDireccion())+" ";
-        sql = sql +"WHERE \"ID_Urbanizacion\"="+Validaciones.Apost(urb.getIdUrbanizacion());
+        sql = sql +"WHERE \"ID_Urbanizacion\"="+Validaciones.Apost(urb.getId());
       
        
         PackageConeccion.ConeccionBD.ejecutar(sql);
@@ -61,7 +61,7 @@ public class DaoUrbanizacion extends ClassConexionDAO {
         
         sql = "UPDATE \"TUrbanizacion\" SET ";
         sql = sql + "estatus="+Validaciones.Apost("E")+" ";
-        sql = sql + "WHERE \"ID_Urbanizacion\"="+Validaciones.Apost(urb.getIdUrbanizacion());
+        sql = sql + "WHERE \"ID_Urbanizacion\"="+Validaciones.Apost(urb.getId());
         
         PackageConeccion.ConeccionBD.ejecutar(sql);
     }
