@@ -31,6 +31,10 @@ public class jPrincipal extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
+        botonInterFacebook = new JavaBean.BotonInternet();
+        botonInterCorreo = new JavaBean.BotonInternet();
+        botonInterTwitter = new JavaBean.BotonInternet();
+        botonInterWhatsapp = new JavaBean.BotonInternet();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenuPagos = new javax.swing.JMenu();
         jMenuItemCliente = new javax.swing.JMenuItem();
@@ -47,6 +51,27 @@ public class jPrincipal extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Oxygen", 1, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 153, 255));
         jLabel1.setText("Bienvenido");
+
+        botonInterFacebook.setForeground(new java.awt.Color(255, 255, 255));
+        botonInterFacebook.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/facebook-logo-button.png"))); // NOI18N
+        botonInterFacebook.setLink("https://www.Facebook.com");
+        botonInterFacebook.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonInterFacebookActionPerformed(evt);
+            }
+        });
+
+        botonInterCorreo.setForeground(new java.awt.Color(255, 255, 255));
+        botonInterCorreo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/hotmail.png"))); // NOI18N
+        botonInterCorreo.setLink("https://outlook.live.com/owa/#id=64855");
+
+        botonInterTwitter.setForeground(new java.awt.Color(255, 255, 255));
+        botonInterTwitter.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/twitter-logo-button.png"))); // NOI18N
+        botonInterTwitter.setLink("https://twitter.com/");
+
+        botonInterWhatsapp.setForeground(new java.awt.Color(255, 255, 255));
+        botonInterWhatsapp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/whatsapp-logo-variant.png"))); // NOI18N
+        botonInterWhatsapp.setLink("https://web.whatsapp.com/");
 
         jMenuPagos.setText("Administracion");
 
@@ -87,17 +112,38 @@ public class jPrincipal extends javax.swing.JFrame {
                 .addGap(119, 119, 119)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(122, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(botonInterFacebook, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(63, 63, 63)
+                .addComponent(botonInterCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
+                .addComponent(botonInterTwitter, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(57, 57, 57)
+                .addComponent(botonInterWhatsapp, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(112, 112, 112)
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(botonInterCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(botonInterTwitter, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                        .addComponent(botonInterFacebook, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(botonInterWhatsapp, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(42, 42, 42)
                 .addComponent(jLabel1)
                 .addContainerGap(157, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void botonInterFacebookActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonInterFacebookActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_botonInterFacebookActionPerformed
 
     /**
      * @param args the command line arguments
@@ -143,6 +189,10 @@ public class jPrincipal extends javax.swing.JFrame {
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private JavaBean.BotonInternet botonInterCorreo;
+    private JavaBean.BotonInternet botonInterFacebook;
+    private JavaBean.BotonInternet botonInterTwitter;
+    private JavaBean.BotonInternet botonInterWhatsapp;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItemCasa;

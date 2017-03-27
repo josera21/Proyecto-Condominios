@@ -170,6 +170,10 @@ public class ControladorUrbanizacion implements KeyListener, ActionListener {
     }
     
     private void copiar() {
+        if(prototipo == null) {
+            Validaciones.Aviso("Error! no se puede copiar.", "Gestion de Registro");
+            return;
+        }
         Validaciones.Aviso("Urbanizacion Copiada", "Gestion de Registro");
         formUrb.getjTextFieldCodigo().setText(prototipo.getId());
         formUrb.getjTextFieldNombre().setText(prototipo.getNombre());

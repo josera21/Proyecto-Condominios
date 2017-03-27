@@ -84,12 +84,32 @@
               <Component id="jLabel1" min="-2" pref="201" max="-2" attributes="0"/>
               <EmptySpace pref="122" max="32767" attributes="0"/>
           </Group>
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="botonInterFacebook" min="-2" pref="67" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="63" max="-2" attributes="0"/>
+              <Component id="botonInterCorreo" min="-2" pref="65" max="-2" attributes="0"/>
+              <EmptySpace pref="48" max="32767" attributes="0"/>
+              <Component id="botonInterTwitter" min="-2" pref="65" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
+              <Component id="botonInterWhatsapp" min="-2" pref="65" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+          </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="112" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="botonInterCorreo" alignment="0" min="-2" pref="64" max="-2" attributes="0"/>
+                  <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
+                      <Component id="botonInterTwitter" alignment="0" pref="0" max="32767" attributes="0"/>
+                      <Component id="botonInterFacebook" alignment="0" min="-2" pref="64" max="-2" attributes="0"/>
+                      <Component id="botonInterWhatsapp" alignment="0" min="-2" pref="64" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+              <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
               <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
               <EmptySpace pref="157" max="32767" attributes="0"/>
           </Group>
@@ -106,6 +126,53 @@
           <Color blue="ff" green="99" red="0" type="rgb"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Bienvenido"/>
+      </Properties>
+    </Component>
+    <Component class="JavaBean.BotonInternet" name="botonInterFacebook">
+      <Properties>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+        </Property>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/imagenes/facebook-logo-button.png"/>
+        </Property>
+        <Property name="link" type="java.lang.String" value="https://www.Facebook.com"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonInterFacebookActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="JavaBean.BotonInternet" name="botonInterCorreo">
+      <Properties>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+        </Property>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/imagenes/hotmail.png"/>
+        </Property>
+        <Property name="link" type="java.lang.String" value="https://outlook.live.com/owa/#id=64855"/>
+      </Properties>
+    </Component>
+    <Component class="JavaBean.BotonInternet" name="botonInterTwitter">
+      <Properties>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+        </Property>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/imagenes/twitter-logo-button.png"/>
+        </Property>
+        <Property name="link" type="java.lang.String" value="https://twitter.com/"/>
+      </Properties>
+    </Component>
+    <Component class="JavaBean.BotonInternet" name="botonInterWhatsapp">
+      <Properties>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+        </Property>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/imagenes/whatsapp-logo-variant.png"/>
+        </Property>
+        <Property name="link" type="java.lang.String" value="https://web.whatsapp.com/"/>
       </Properties>
     </Component>
   </SubComponents>
